@@ -143,7 +143,7 @@ PORTLET DEVELOPMENT STANDARDS AND GUIDELINES
             <tr rsf:id="row:">
               <td headers="${n}portletName"><span rsf:id="name"></span></td>
               <td headers="${n}portletType" rsf:id="type"></td>
-              <td headers="${n}portletState" rsf:id="state" style="text-transform:capitalize"></td>
+              <td headers="${n}portletState" rsf:id="state"></td>
               <td headers="${n}portletEditLink"><a href="" rsf:id="editLink"></a></td>
               <td headers="${n}portletDeleteLink"><a href="" rsf:id="deleteLink"></a></td>
             </tr>

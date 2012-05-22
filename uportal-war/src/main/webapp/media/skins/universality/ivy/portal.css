@@ -37,7 +37,7 @@
   font-size: 12px;
   text-align: center;
   text-decoration: none;
-  text-transform: capitalize;
+  text-transform: none;
   cursor: pointer;
   -moz-border-radius: 0.6em;
   -webkit-border-radius: 0.6em;
@@ -288,7 +288,7 @@
   padding: 0.5em 25px;
   font-size: 100%;
   text-align: right;
-  text-transform: capitalize;
+  text-transform: none;
   color: #d2dcea;
   background: #4d6fa3 url("images/headerbar.jpg") 0 0 repeat-x;
   background-image: -moz-linear-gradient(top, false, false);
@@ -1062,7 +1062,7 @@
   padding: 0 0 3px 0.5em;
   font-size: 100%;
   font-weight: normal;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .up .up-portlet-wrapper .up-portlet-titlebar h2 a {
   text-decoration: none;

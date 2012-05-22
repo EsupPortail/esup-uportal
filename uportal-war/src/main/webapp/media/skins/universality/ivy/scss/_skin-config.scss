@@ -67,7 +67,7 @@ $portalBarGradient2				: false;
 $portalBarPadding				: 0.5em 25px;
 $portalBarFontSize				: 100%;
 $portalBarTextAlign				: right;
-$portalBarTextTransform			: capitalize;
+$portalBarTextTransform			: none;
 $portalBarLink					: $c1lighter;
 $portalBarLinkHover				: $white;
 $portalBarLinkPadding			: 0 5px;
@@ -190,7 +190,7 @@ $portletShadow					: false;
 $portletTitlePadding			: 0 0 3px 0.5em;
 $portletTitleFontSize			: 100%;
 $portletTitleFontWeight			: normal;
-$portletTitleTextTransform		: capitalize;
+$portletTitleTextTransform		: none;
 // Portlet Controls
 $portletControlsTop				: 0;
 $portletControlsPadding			: 0 0.5em 0 0;
@@ -303,7 +303,7 @@ $buttonBorderStyle				: solid;
 $buttonFontWeight				: bold;
 $buttonFontSize					: 12px;
 $buttonTextAlign				: center;
-$buttonTextTransform			: capitalize;
+$buttonTextTransform			: none;
 $buttonRound					: 0.6em;
 $buttonShadow					: 0, 1px, 3px, rgba(0, 0, 0, .5); // drop shadow
 // Default Button

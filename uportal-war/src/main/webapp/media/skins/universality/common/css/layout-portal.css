@@ -245,7 +245,7 @@ table.purpose-layout td {margin:0; padding:0;}
 #portalSidebar #portalNavigation .active .portal-navigation-gripper span {display: block; width: 16px; height: 16px; overflow: hidden;}
 #portalSidebar #portalNavigation .active .portal-navigation-delete span,
 #portalSidebar #portalNavigation .active .portal-navigation-gripper span {visibility: hidden;}
-#portalSidebar #portalNavigation .portal-navigation-add {height:16px; top: 1px; left: auto; right: 2px; padding:0px 0px 0px 16px; color: #000; text-transform: capitalize; background: transparent url("../images/add.png") 0px 0px no-repeat;}
+#portalSidebar #portalNavigation .portal-navigation-add {height:16px; top: 1px; left: auto; right: 2px; padding:0px 0px 0px 16px; color: #000; text-transform: none; background: transparent url("../images/add.png") 0px 0px no-repeat;}
 #portalSidebar #portalNavigation .active .portal-navigation-gripper {top: 0px; left: auto; right: 18px; cursor: move; background: transparent url("../images/gripper.png") 0px 0px no-repeat; padding: 0;}
 #portalSidebar #portalNavigation .portal-navigation-delete {top: 0px; right: 0px; cursor: pointer; background: transparent url("../images/remove.png") 0px 0px no-repeat; padding: 0;}
 
