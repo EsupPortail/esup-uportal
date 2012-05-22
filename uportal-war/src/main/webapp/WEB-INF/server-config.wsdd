@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="@AXIS_ATTACHMENTS@"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+<!-- OLD GROUP WS
+ <service name="PortalGroups" provider="java:RPC">
+  <parameter name="allowedMethods" value="getRoot,getGroupsHierarchy,getGroupsOfUser,getNestedGroupsOfGroup,getGroupName"/>
+  <parameter name="className" value="org.esupportail.portal.ws.groups.PortalGroups"/>
+  <parameter name="scope" value="application"/>
+ </service>
+-->
+@bg.use.ws@ 
+ <service name="UportalService" provider="java:RPC">
+    <parameter name="allowedMethods" value="getUser,getUserAttributes,getGroupById,getGroupByName,searchUsers,searchGroupsByName,getSubGroups,getSubGroupsById,getSubGroupsByName,getRootGroup,getGroupHierarchyById,getGroupHierarchyByName,getGroupHierarchy,getUserGroups,isUserMemberOfGroup,getContainingGroupsByName,getContainingGroupsById"/>
+    <parameter name="className" value="org.esupportail.portal.ws.server.UportalService"/>
+    <parameter name="scope" value="application"/>
+ </service>
+@end.use.ws@
+
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>

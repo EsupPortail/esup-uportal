@@ -526,6 +526,72 @@
             <artifactId>xmlunit</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
+
+
+	<dependency>
+	  <groupId>axis</groupId>
+	  <artifactId>axis</artifactId>
+	  <version>1.2.1</version>
+	  <exclusions>
+	    <exclusion>
+	      <groupId>javax.mail</groupId>
+	                      <artifactId>mail</artifactId>
+	    </exclusion>
+	  </exclusions>
+	</dependency>
+	<dependency>
+	  <groupId>axis</groupId>
+	  <artifactId>axis-ant</artifactId>
+	  <version>1.2.1</version>
+	  <exclusions>
+	    <exclusion>
+	      <groupId>javax.mail</groupId>
+	                      <artifactId>mail</artifactId>
+	    </exclusion>
+	  </exclusions>
+	</dependency>
+	<dependency>
+	  <groupId>axis</groupId>
+	  <artifactId>axis-jaxrpc</artifactId>
+	  <version>1.2.1</version>
+	  <exclusions>
+	    <exclusion>
+	      <groupId>javax.mail</groupId>
+	                      <artifactId>mail</artifactId>
+	    </exclusion>
+	  </exclusions>
+	</dependency>
+	<dependency>
+	  <groupId>axis</groupId>
+	  <artifactId>axis-wsdl4j</artifactId>
+	  <version>1.2.1</version>
+	  <exclusions>
+	    <exclusion>
+	      <groupId>javax.mail</groupId>
+	                      <artifactId>mail</artifactId>
+	    </exclusion>
+	  </exclusions>
+	</dependency>
+	<dependency>
+	  <groupId>axis</groupId>
+	  <artifactId>axis-saaj</artifactId>
+	  <version>1.2.1</version>
+	  <exclusions>
+	    <exclusion>
+	      <groupId>javax.mail</groupId>
+	                      <artifactId>mail</artifactId>
+	    </exclusion>
+	  </exclusions>
+	</dependency>
+
+
+
+
+
+
     </dependencies>
     
     <properties>

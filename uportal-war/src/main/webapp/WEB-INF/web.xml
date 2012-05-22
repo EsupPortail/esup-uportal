@@ -367,6 +367,15 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
 
+
+    <servlet>
+      <servlet-name>AxisServlet</servlet-name>
+      <display-name>Apache-Axis Servlet</display-name>
+      <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+    </servlet>
+
+
+
     <!-- [INSERT JSPC FRAGMENT HERE] -->
 
     <servlet-mapping>
@@ -408,6 +417,13 @@
         <url-pattern>/Login</url-pattern>
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
+
+
+    <servlet-mapping>
+      <servlet-name>AxisServlet</servlet-name>
+      <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
 
     <mime-mapping>
         <extension>wbmp</extension>
