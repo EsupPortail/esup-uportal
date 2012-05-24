@@ -27,6 +27,7 @@
  +-->
 <project name="uPortal" default="help" basedir="." xmlns:up="urn:up-util-ant" xmlns:artifact="urn:maven-artifact-ant">
 
+    <property file="${basedir}/build.properties" />
     <!--
      | Determine if a named environment has been specified in the command.  
      | Examples:  dev, test, prod, local, etc.
@@ -50,7 +51,6 @@
      +-->
     <property environment="env" />
     <property file="${basedir}/filters/${environment.token}.properties" />
-    <property file="${basedir}/build.properties" />
     <property name="targetdir" value="${basedir}/target"/>
 
     <!--
