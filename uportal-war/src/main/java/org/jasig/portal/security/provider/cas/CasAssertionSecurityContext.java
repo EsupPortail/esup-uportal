@@ -65,6 +65,18 @@ public class CasAssertionSecurityContext extends ChainingSecurityContext impleme
             this.myPrincipal.setUID(assertion.getPrincipal().getName());
             this.isauth = true;
             log.debug("CASContext authenticated [" + this.myPrincipal.getUID() + "] using assertion [" + this.assertion + "]");
+
+	    /* Patch needed for Shibboleth + Proxy CAS Authentication here */
+	    /*
+            //this.myPrincipal.setUID(assertion.getPrincipal().getName());
+            //this.isauth = true;
+            //log.debug("CASContext authenticated [" + this.myPrincipal.getUID() + "] using assertion [" + this.assertion + "]");
+            log.info("patch RUNN - No real CAS Authentication : CASContext authenticated using assertion " + this.assertion);
+            this.myPrincipal.setUID(assertion.getPrincipal().getName());
+            this.isauth = true;
+            log.debug("CASContext authenticated [" + this.myPrincipal.getUID() + "] using assertion [" + this.assertion + "]");
+	     */
+
             postAuthenticate(assertion);
         }
 

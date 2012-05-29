@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+<!-- Spring configuration for Shibboleth + Proxy CAS Authentication-->
+<!--
+	<bean id="runnCasValidateFilter"
+		class="fr.runn.auth.cas.RunnCas20ProxyReceivingTicketValidationFilter">
+		
+		<property name="loginUrl" value="${environment.build.uportal.protocol}://${environment.build.uportal.server}${environment.build.uportal.context}/Login"/>
+		
+		<property name="logoutUrl" value="${environment.build.uportal.protocol}://${environment.build.uportal.server}/Shibboleth.sso/Logout%3Freturn%3D${environment.build.uportal.protocol}%3A%2F%2F${environment.build.uportal.server}%2FuPortal%2FLogout"/>
+		
+		<property name="logoutUrlNoEncoded" value="${environment.build.uportal.protocol}://${environment.build.uportal.server}/Shibboleth.sso/Logout?return=${environment.build.uportal.protocol}://${environment.build.uportal.server}${environment.build.uportal.context}/Logout"/>
+
+		<property name="ticketValidationFiltersWrapper">
+			<list>
+				<bean class="fr.runn.auth.cas.RunnTicketValidationFiltersWrapper">
+					<property name="affiliationSuffix" value="mon-univ.fr" />
+					<property name="casAddrs">
+						<list>
+							<value>1.1.1.1</value>
+							<value>1.1.1.2</value>
+						</list>
+					</property>
+					<property name="ticketValidationFilter" ref="monunivTicketValidationFilter" />
+					<property name="casLoginUrl" value="${environment.build.cas.protocol}://${environment.build.cas.server}${environment.build.cas.context}/login"/>
+					<property name="casLogoutUrl" value="${environment.build.cas.protocol}://${environment.build.cas.server}${environment.build.cas.context}/logout"/>
+				</bean>
+
+				<bean class="fr.runn.auth.cas.RunnTicketValidationFiltersWrapper">
+					<property name="affiliationSuffix" value="autre-univ.fr" />
+					<property name="casAddrs">
+						<list>
+							<value>1.1.2.1</value>
+							<value>1.1.2.2</value>
+						</list>
+					</property>
+					<property name="ticketValidationFilter" ref="autreunivTicketValidationFilter" />
+					<property name="casLoginUrl" value="https://cas.autre-univ.fr/cas/login"/>
+					<property name="casLogoutUrl" value="https://cas.autre-univ.fr/cas/logout"/>
+				</bean>
+				
+
+			</list>
+		</property>
+
+	</bean>
+
+	<bean name="monunivTicketValidationFilter"
+		class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter"
+		p:serverName="${environment.build.uportal.protocol}://${environment.build.uportal.server}" p:proxyReceptorUrl="${environment.build.uportal.context}/CasProxyServlet">
+		<property name="ticketValidator">
+			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
+				p:proxyCallbackUrl="${environment.build.uportal.protocol}://${environment.build.uportal.server}${environment.build.uportal.context}/CasProxyServlet">
+				<constructor-arg index="0"
+					value="${environment.build.cas.protocol}://${environment.build.cas.server}" />
+					<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage"/>
+			</bean>
+		</property>
+		<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage"/>
+	</bean>
+
+	<bean name="autreunivTicketValidationFilter"
+		class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter"
+		p:serverName="${environment.build.uportal.protocol}://${environment.build.uportal.server}" p:proxyReceptorUrl="${environment.build.uportal.context}/CasProxyServlet">
+		<property name="ticketValidator">
+			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator"
+				p:proxyCallbackUrl="${environment.build.uportal.protocol}://${environment.build.uportal.server}${environment.build.uportal.context}/CasProxyServlet">
+				<constructor-arg index="0"
+					value="https://cas.autre-univ.fr/cas" />
+					<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage"/>
+			</bean>
+		</property>
+		<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage"/>
+	</bean>
+
+
+	<bean id="proxyGrantingTicketStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl"/>
+-->
+
+</beans>

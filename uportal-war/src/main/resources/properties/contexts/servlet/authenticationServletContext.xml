@@ -34,4 +34,8 @@
     for this context as it's unique to the DispatcherServlet -->
     <context:component-scan base-package="org.jasig.portal.security.mvc"/>
 
+    <!-- Add for shibboleth + Proxy CAS Authentication -->
+    <!--context:component-scan base-package="fr.runn.auth.mvc"/-->
+
+
 </beans>

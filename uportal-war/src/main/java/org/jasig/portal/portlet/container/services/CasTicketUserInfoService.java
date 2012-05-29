@@ -253,6 +253,12 @@ public class CasTicketUserInfoService implements UserInfoService  {
 			log.debug("no CAS security context, no proxy ticket passed to the portlet");
 			return null;
 		}
+		/* Patch needed for Shibboleth + Proxy CAS Authentication here */
+		/* No real CAS Authentication with the Shib + Proxy CAS Authentication process
+		   so just comment this block bellow : 
+		   indeed casContext.isAuthenticated() is always false with the patch on 
+		   @see org.jasig.portal.security.provider.cas.CasAssertionSecurityContext
+		*/
 		if (!casContext.isAuthenticated()) {
 			log.debug("no CAS authentication, no proxy ticket passed to the portlet");
 			return null;

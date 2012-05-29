@@ -133,6 +133,17 @@
         </init-param>
     </filter>
     
+    <!-- here the cas validate filter when using shibboleth + proxy cas authentication -->
+    <!--filter>
+      <filter-name>CAS Validate Filter</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+      <init-param>
+	<param-name>targetBeanName</param-name>
+	<param-value>runnCasValidateFilter</param-value>
+      </init-param>
+    </filter-->
+
+
     <filter>
         <filter-name>CAS Assertion ThreadLocal Filter</filter-name>
         <filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>
@@ -416,6 +427,9 @@
         <servlet-name>AuthenticationDispatcherServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/Logout</url-pattern>
+	<!-- for shibboleth + proxy cas authentication -->
+        <!--url-pattern>/shibLogin</url-pattern>
+        <url-pattern>/shibLogout</url-pattern-->
     </servlet-mapping>
 
 
