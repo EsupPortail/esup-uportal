@@ -88,6 +88,9 @@
         <jdbc.artifactId>hsqldb</jdbc.artifactId>
         <jdbc.version>${hsqldb.version}</jdbc.version>
     
+        <jdbc.groupId>postgresql</jdbc.groupId>
+        <jdbc.artifactId>postgresql</jdbc.artifactId>
+        <jdbc.version>9.0-801.jdbc4</jdbc.version>                      
         <!--
          | Environment name and filters file for environment-specific build
          | settings.  By default <environment.name> is blank, and the filters 
@@ -371,6 +374,11 @@
                 <artifactId>sqltool</artifactId>
                 <version>${hsqldb.version}</version>
             </dependency>
+            <dependency>
+                <groupId>${jdbc.groupId}</groupId>
+                <artifactId>${jdbc.artifactId}</artifactId>
+                <version>${jdbc.version}</version>
+            </dependency>  
             <dependency>
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>

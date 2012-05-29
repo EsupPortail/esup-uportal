@@ -616,6 +616,9 @@
                     <include>properties/rdbm.properties</include>
                     <include>properties/security.properties</include>
                     <include>properties/contexts/userContext.xml</include>
+                    <include>properties/contexts/ldapContext.xml</include>
+                    <include>properties/contexts/personDirectoryContext.xml</include>
+                    <include>properties/i18n/*.properties</include>
                 </includes>
             </resource>
             <!-- 
@@ -731,6 +734,17 @@
                     </filters>
                     <attachClasses>true</attachClasses>
                     <webXml>${war-plugin-webxml-source}</webXml>
+                    <webResources>
+             			<webResource>
+		               		<directory>${basedir}/src/main/webapp/WEB-INF</directory>
+		               		<includes>
+		                 		<include>web.xml</include>
+		                 		<include>log4j.properties</include>
+		               		</includes>
+		               		<targetPath>WEB-INF</targetPath>
+		               		<filtering>true</filtering>
+		             	</webResource>
+		           </webResources> 
                 </configuration>
             </plugin>
             <plugin>
