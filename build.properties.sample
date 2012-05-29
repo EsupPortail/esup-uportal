@@ -48,10 +48,12 @@ server.webapps=${server.base}/webapps
 # Use default_entities.location to override the location of data imported by the initdb 
 # and/or db-import targets;  required data is imported before entities specified here
 #default_entities.location=uportal-war/src/main/data/default_entities
+#default_entities.location=uportal-war/src/main/data/default_fr_entities
 
 # Use quickstart_entities.location to override the location of data imported by the initdb 
 # and/or db-import targets;  required and default data is imported before entities specified here
 #quickstart_entities.location=uportal-war/src/main/data/quickstart_entities
+#quickstart_entities.location=uportal-war/src/main/data/esup_entities
 
 
 ######## Deployment Configuration ##########
@@ -71,3 +73,6 @@ cleanShared=true
 
 # Prompt the user before running ant tasks that could modify the database
 prodPrompt=false
+# which filter file do we use 
+env=esup
+

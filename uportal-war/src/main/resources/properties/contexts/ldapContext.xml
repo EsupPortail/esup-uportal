@@ -68,4 +68,17 @@
         <property name="pooled" value="false"/>
     </bean>
     -->
+
+    <!-- 
+     | Standard Spring ContextSource declaration, used by all new code post 3.0.0.
+     | Required for:
+     |  - Person Directory LDAP Attributes
+     | For use with filter esup.properties
+     +-->
+    <bean id="defaultLdapContext" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="${environment.build.ldap.url}"/>
+        <property name="userDn" value="${environment.build.ldap.bindDN}"/>
+        <property name="password" value="${environment.build.ldap.bindPasswd}"/>
+        <property name="pooled" value="${environment.build.ldap.pooled}"/>      
+    </bean>
 </beans>
