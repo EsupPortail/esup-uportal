@@ -102,7 +102,7 @@
          | character.  If you want to override the default environment.name by 
          | invoking Maven directly, you will have to append a period yourself.
          +-->
-        <env>local</env>
+        <env>esup</env>
         <filters.file>filters/${env}.properties</filters.file>
     
         <!-- WAR Dependency Version Properties -->
