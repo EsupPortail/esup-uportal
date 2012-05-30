@@ -531,61 +531,61 @@
 
 
 
-	<dependency>
-	  <groupId>axis</groupId>
-	  <artifactId>axis</artifactId>
-	  <version>1.2.1</version>
-	  <exclusions>
-	    <exclusion>
-	      <groupId>javax.mail</groupId>
-	                      <artifactId>mail</artifactId>
-	    </exclusion>
-	  </exclusions>
-	</dependency>
-	<dependency>
-	  <groupId>axis</groupId>
-	  <artifactId>axis-ant</artifactId>
-	  <version>1.2.1</version>
-	  <exclusions>
-	    <exclusion>
-	      <groupId>javax.mail</groupId>
-	                      <artifactId>mail</artifactId>
-	    </exclusion>
-	  </exclusions>
-	</dependency>
-	<dependency>
-	  <groupId>axis</groupId>
-	  <artifactId>axis-jaxrpc</artifactId>
-	  <version>1.2.1</version>
-	  <exclusions>
-	    <exclusion>
-	      <groupId>javax.mail</groupId>
-	                      <artifactId>mail</artifactId>
-	    </exclusion>
-	  </exclusions>
-	</dependency>
-	<dependency>
-	  <groupId>axis</groupId>
-	  <artifactId>axis-wsdl4j</artifactId>
-	  <version>1.2.1</version>
-	  <exclusions>
-	    <exclusion>
-	      <groupId>javax.mail</groupId>
-	                      <artifactId>mail</artifactId>
-	    </exclusion>
-	  </exclusions>
-	</dependency>
-	<dependency>
-	  <groupId>axis</groupId>
-	  <artifactId>axis-saaj</artifactId>
-	  <version>1.2.1</version>
-	  <exclusions>
-	    <exclusion>
-	      <groupId>javax.mail</groupId>
-	                      <artifactId>mail</artifactId>
-	    </exclusion>
-	  </exclusions>
-	</dependency>
+    <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis</artifactId>
+        <version>1.2.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis-ant</artifactId>
+        <version>1.2.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis-jaxrpc</artifactId>
+        <version>1.2.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis-wsdl4j</artifactId>
+        <version>1.2.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis-saaj</artifactId>
+        <version>1.2.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
 
 
 
@@ -735,16 +735,16 @@
                     <attachClasses>true</attachClasses>
                     <webXml>${war-plugin-webxml-source}</webXml>
                     <webResources>
-             			<webResource>
-		               		<directory>${basedir}/src/main/webapp/WEB-INF</directory>
-		               		<includes>
-		                 		<include>web.xml</include>
-		                 		<include>log4j.properties</include>
-		               		</includes>
-		               		<targetPath>WEB-INF</targetPath>
-		               		<filtering>true</filtering>
-		             	</webResource>
-		           </webResources> 
+                        <webResource>
+                            <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                            <includes>
+                                <include>web.xml</include>
+                                <include>log4j.properties</include>
+                            </includes>
+                            <targetPath>WEB-INF</targetPath>
+                            <filtering>true</filtering>
+                        </webResource>
+                   </webResources> 
                 </configuration>
             </plugin>
             <plugin>
