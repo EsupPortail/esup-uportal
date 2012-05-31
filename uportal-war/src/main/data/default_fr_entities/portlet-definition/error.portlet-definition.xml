@@ -23,7 +23,7 @@
     <title>Erreur</title>
     <name>Erreur</name>
     <fname>error</fname>
-    <desc>Affiche un message d'erreur quand la portlet initiale ne peut pas s'afficher.</desc>
+    <desc>Affiche un message d'erreur quand le portlet initial ne peut pas s'afficher.</desc>
     <type>Portlet</type>
     <timeout>30000</timeout>
     <portlet-descriptor>
