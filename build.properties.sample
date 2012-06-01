@@ -53,6 +53,8 @@ default_entities.location=uportal-war/src/main/data/default_fr_entities
 # and/or db-import targets;  required and default data is imported before entities specified here
 #quickstart_entities.location=uportal-war/src/main/data/quickstart_entities
 #quickstart_entities.location=uportal-war/src/main/data/esup_entities
+quickstart_entities.location=uportal-war/src/main/data/quickstart_fr_entities
+
 
 ######## Deployment Configuration ##########
 # The following apply to deployPortletApp, deploy-war, and deploy-ear targets

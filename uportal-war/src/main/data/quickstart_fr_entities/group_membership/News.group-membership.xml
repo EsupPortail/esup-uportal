@@ -20,14 +20,9 @@
 
 -->
 <group script="classpath://org/jasig/portal/io/import-group_membership_v3-2.crn">
-  <name>All categories</name>
+  <name>Actualités</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>Toutes les catégories de portlets</description>
-  <children>
-    <group>Administration</group>
-    <group>Développement</group>
-    <group>Information</group>
-    <group>uPortal</group>
-  </children>
+  <description>Portlets d'actualités</description>
+  <children/>
 </group>

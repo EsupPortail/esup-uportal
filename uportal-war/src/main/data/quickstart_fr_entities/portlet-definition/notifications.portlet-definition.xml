@@ -20,20 +20,37 @@
 
 -->
 <portlet-definition xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/permission-owner" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/user" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd">
-    <title>Espion</title>
-    <name>Espion</name>
-    <fname>snooper</fname>
-    <desc>Outil pour voir les attributs et en-têtes de requêtes</desc>
-    <type>Portlet</type>
-    <timeout>5000</timeout>
+    <title>Mes informations</title>
+    <name>Mes informations</name>
+    <fname>notifications</fname>
+    <desc>Maquette de la portlet de notifications</desc>
+    <type>CMS</type>
+    <timeout>10000</timeout>
     <portlet-descriptor>
-        <ns2:isFramework>true</ns2:isFramework>
-        <ns2:portletName>Snooper</ns2:portletName>
+        <ns2:webAppName>/SimpleContentPortlet</ns2:webAppName>
+        <ns2:portletName>cms</ns2:portletName>
     </portlet-descriptor>
-    <category>Développement</category>
-    <group>Portal Developers</group>
+    <category>Information</category>
+    <group>Everyone</group>
+    <parameter>
+        <name>disableDynamicTitle</name>
+        <value>true</value>
+    </parameter>
     <parameter>
         <name>iconUrl</name>
-        <value>/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png</value>
+        <value>/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-multimedia.png</value>
     </parameter>
+    <portlet-preference>
+        <name>content</name>
+        <readOnly>false</readOnly>
+        <value>
+            
+                &lt;img src=&quot;/uPortal/media/org/jasig/portal/channels/webproxy/notifications.png&quot; 
+                alt=&quot;uP3 Mock Notifications&quot; border=&quot;0&quot; /&gt;
+                &lt;p&gt;Mock of the &lt;a href=&quot;http://www.unicon.net/node/675&quot;&gt;Toro 
+                Notifications Portlet&lt;/a&gt; by &lt;a href=&quot;http://www.unicon.net/&quot;&gt;
+                Unicon&lt;/a&gt;.  This is a sample screen for demonstration purposes only.&lt;/p&gt;
+            
+        </value>
+    </portlet-preference>
 </portlet-definition>

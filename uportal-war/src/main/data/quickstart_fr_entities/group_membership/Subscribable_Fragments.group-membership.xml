@@ -20,14 +20,12 @@
 
 -->
 <group script="classpath://org/jasig/portal/io/import-group_membership_v3-2.crn">
-  <name>All categories</name>
-  <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
+  <name>Subscribable Fragments</name>
+  <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>Toutes les catégories de portlets</description>
+  <description>These are fragment layout owner accounts</description>
   <children>
-    <group>Administration</group>
-    <group>Développement</group>
-    <group>Information</group>
-    <group>uPortal</group>
+    <literal>ent-lo</literal>
+    <literal>news-lo</literal>
   </children>
 </group>

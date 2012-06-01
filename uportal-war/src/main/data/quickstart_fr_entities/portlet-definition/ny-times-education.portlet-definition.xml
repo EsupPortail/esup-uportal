@@ -20,20 +20,51 @@
 
 -->
 <portlet-definition xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/permission-owner" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/user" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd">
-    <title>Espion</title>
-    <name>Espion</name>
-    <fname>snooper</fname>
-    <desc>Outil pour voir les attributs et en-têtes de requêtes</desc>
-    <type>Portlet</type>
-    <timeout>5000</timeout>
+    <title>NY Times - Education</title>
+    <name>NY Times Education</name>
+    <fname>ny-times-education</fname>
+    <desc>Flux d'actualités sur l'éducation du New York Times.</desc>
+    <type>RSS</type>
+    <timeout>10000</timeout>
     <portlet-descriptor>
-        <ns2:isFramework>true</ns2:isFramework>
-        <ns2:portletName>Snooper</ns2:portletName>
+        <ns2:webAppName>/NewsReaderPortlet</ns2:webAppName>
+        <ns2:portletName>single-feed-news</ns2:portletName>
     </portlet-descriptor>
-    <category>Développement</category>
-    <group>Portal Developers</group>
+    <category>Actualités</category>
+    <group>Everyone</group>
     <parameter>
         <name>iconUrl</name>
-        <value>/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png</value>
+        <value>/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/internet-news-reader.png</value>
     </parameter>
+    <parameter>
+        <name>hasHelp</name>
+        <value>true</value>
+    </parameter>
+    <parameter>
+        <name>mobileIconUrl</name>
+        <value>/uPortal/media/skins/icons/mobile/feed.png</value>
+    </parameter>
+    <parameter>
+        <name>editable</name>
+        <value>true</value>
+    </parameter>
+    <parameter>
+        <name>disableDynamicTitle</name>
+        <value>true</value>
+    </parameter>
+    <portlet-preference>
+        <name>name</name>
+        <readOnly>false</readOnly>
+        <value>New York Times: Education</value>
+    </portlet-preference>
+    <portlet-preference>
+        <name>url</name>
+        <readOnly>false</readOnly>
+        <value>http://feeds.nytimes.com/nyt/rss/Education</value>
+    </portlet-preference>
+    <portlet-preference>
+        <name>summaryView</name>
+        <readOnly>false</readOnly>
+        <value>flyout</value>
+    </portlet-preference>
 </portlet-definition>

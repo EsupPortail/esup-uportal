@@ -20,14 +20,12 @@
 
 -->
 <group script="classpath://org/jasig/portal/io/import-group_membership_v3-2.crn">
-  <name>All categories</name>
-  <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
+  <name>Guests</name>
+  <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>Toutes les catégories de portlets</description>
+  <description>Anonymes</description>
   <children>
-    <group>Administration</group>
-    <group>Développement</group>
-    <group>Information</group>
-    <group>uPortal</group>
+    <literal>guest</literal>
+    <literal>guest-lo</literal>
   </children>
 </group>

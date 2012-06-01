@@ -19,15 +19,13 @@
     under the License.
 
 -->
-<group script="classpath://org/jasig/portal/io/import-group_membership_v3-2.crn">
-  <name>All categories</name>
-  <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
-  <creator>system</creator>
-  <description>Toutes les catégories de portlets</description>
-  <children>
-    <group>Administration</group>
-    <group>Développement</group>
-    <group>Information</group>
-    <group>uPortal</group>
-  </children>
-</group>
+<fragment-definition xmlns:dlm="http://org.jasig.portal.layout.dlm.config" script="classpath://org/jasig/portal/io/import-fragment-definition_v3-1.crn">
+  <dlm:fragment name="Campus" ownerID="campus-lo" precedence="40">
+    <dlm:audience evaluatorFactory="org.jasig.portal.layout.dlm.providers.GroupMembershipEvaluatorFactory">
+      <paren mode="OR">     
+        <attribute mode="memberOf" name="Students"/>
+        <attribute mode="memberOf" name="Faculty"/>
+      </paren>
+    </dlm:audience>
+  </dlm:fragment>
+</fragment-definition>

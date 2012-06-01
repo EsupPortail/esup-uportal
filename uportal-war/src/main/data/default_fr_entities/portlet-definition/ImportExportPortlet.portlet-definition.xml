@@ -30,7 +30,7 @@
         <ns2:isFramework>true</ns2:isFramework>
         <ns2:portletName>ImportExportPortlet</ns2:portletName>
     </portlet-descriptor>
-    <category>Developpement</category>
+    <category>Développement</category>
     <group>Portal Administrators</group>
     <parameter>
         <name>disableDynamicTitle</name>

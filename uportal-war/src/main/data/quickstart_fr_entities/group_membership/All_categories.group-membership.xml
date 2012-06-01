@@ -25,9 +25,21 @@
   <creator>system</creator>
   <description>Toutes les catégories de portlets</description>
   <children>
+    <group>Enseignement</group>
     <group>Administration</group>
+    <group>Advisor</group>
+    <group>Démonstration</group>
     <group>Développement</group>
+    <group>Divertissement</group>
+    <group>Finances</group>
     <group>Information</group>
+    <group>Enseignants</group>
+    <group>Bibliothèque</group>
+    <group>Actualités</group>
+    <group>Recherche</group>
+    <group>Services</group>
+    <group>Tests</group>
+    <group>Travail</group>
     <group>uPortal</group>
   </children>
 </group>

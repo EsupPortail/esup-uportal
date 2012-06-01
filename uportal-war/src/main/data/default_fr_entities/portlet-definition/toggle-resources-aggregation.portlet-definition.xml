@@ -30,7 +30,7 @@
         <ns2:isFramework>true</ns2:isFramework>
         <ns2:portletName>ToggleResourcesAggregation</ns2:portletName>
     </portlet-descriptor>
-    <category>Developpement</category>
+    <category>Développement</category>
     <group>Portal Developers</group>
     <parameter>
         <name>iconUrl</name>
