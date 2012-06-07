@@ -284,6 +284,9 @@
 </xsl:template>
 
 <xsl:template match="channel">
+  <!-- esup : add test hide from desktop-->
+<xsl:if test="not(parameter[@name='hideFromDesktop']/@value = 'true')">
+<!-- esup : end add test hide from desktop-->
   <xsl:choose>
     <xsl:when test="$userImpersonating = 'true' and parameter[@name='blockImpersonation']/@value = 'true'">
         <blocked-channel>
@@ -295,6 +298,9 @@
       <xsl:copy-of select="."/>
     </xsl:otherwise>
   </xsl:choose>
+<!-- esup : add test hide from desktop-->
+</xsl:if>
+<!-- esup : end fin uvhc-->
 </xsl:template>
 
 <xsl:template match="parameter">

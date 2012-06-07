@@ -398,62 +398,97 @@
         </xsl:attribute>
         <ul class="portal-subnav-list"> <!-- List of the subnavigation menu items. -->
         	<xsl:choose>
-          	<xsl:when test="$CONTEXT='flyout'">
-            
-              <xsl:for-each select="tabChannel">
-                <xsl:variable name="SUBNAV_POSITION"> <!-- Determine the position of the navigation option within the whole navigation list and add css hooks for the first and last positions. -->
-                  <xsl:choose>
-                    <xsl:when test="position()=1 and position()=last()">single</xsl:when>
-                    <xsl:when test="position()=1">first</xsl:when>
-                    <xsl:when test="position()=last()">last</xsl:when>
-                    <xsl:otherwise></xsl:otherwise>
-                  </xsl:choose>
-                </xsl:variable>
-                <li id="portalSubnavLink_{@ID}" class="portal-subnav {$SUBNAV_POSITION} {@fname}"> <!-- Each subnavigation menu item.  The unique ID can be used in the CSS to give each menu item a unique icon, color, or presentation. -->
-                  <xsl:variable name="portletSubNavLink">
-                    <xsl:call-template name="portalUrl">
-                        <xsl:with-param name="url">
-                            <url:portal-url>
-                                <url:layoutId><xsl:value-of select="@ID"/></url:layoutId>
-                                <url:portlet-url state="MAXIMIZED" copyCurrentRenderParameters="true" />
-                            </url:portal-url>
-                        </xsl:with-param>
-                    </xsl:call-template>
-                  </xsl:variable>
-                  <a href="{$portletSubNavLink}" title="{@description}" class="portal-subnav-link">  <!-- Navigation item link. -->
-                      <span class="portal-subnav-label"><xsl:value-of select="@title"/></span>
-                  </a>
-                </li>
-              </xsl:for-each>
+	          	<xsl:when test="$CONTEXT='flyout'">
+	
+				<xsl:for-each select="tabChannel">
+					<!-- esup : add test hide from desktop -->
+					<xsl:if test="not(@hideFromDesktop='true')">
+						<!-- esup : end test hide from desktop -->
+			
+						<xsl:variable name="SUBNAV_POSITION"> <!-- Determine the position of the navigation option within the whole navigation 
+								list and add css hooks for the first and last positions. -->
+							<xsl:choose>
+								<xsl:when test="position()=1 and position()=last()">
+									single
+								</xsl:when>
+								<xsl:when test="position()=1">
+									first
+								</xsl:when>
+								<xsl:when test="position()=last()">
+									last
+								</xsl:when>
+								<xsl:otherwise></xsl:otherwise>
+							</xsl:choose>
+						</xsl:variable>
+						<li id="portalSubnavLink_{@ID}" class="portal-subnav {$SUBNAV_POSITION} {@fname}"> <!-- Each subnavigation menu item. The unique ID can be used in the CSS to 
+								give each menu item a unique icon, color, or presentation. -->
+							<xsl:variable name="portletSubNavLink">
+								<xsl:call-template name="portalUrl">
+									<xsl:with-param name="url">
+										<url:portal-url>
+											<url:layoutId><xsl:value-of select="@ID" /></url:layoutId>
+											<url:portlet-url state="MAXIMIZED"
+												copyCurrentRenderParameters="true" />
+										</url:portal-url>
+									</xsl:with-param>
+								</xsl:call-template>
+							</xsl:variable>
+							<a href="{$portletSubNavLink}" title="{@description}" class="portal-subnav-link">  <!-- Navigation item link. -->
+								<span class="portal-subnav-label">
+									<xsl:value-of select="@title" />
+								</span>
+							</a>
+						</li>
+						<!-- esup : add test hide from desktop -->
+					</xsl:if>
+					<!-- esup : end add test hide from desktop -->
+				</xsl:for-each>
               
             </xsl:when>
             <xsl:otherwise>
             	
-              <xsl:for-each select="//navigation/tab[@activeTab='true']/tabChannel">
-                <xsl:variable name="SUBNAV_POSITION"> <!-- Determine the position of the navigation option within the whole navigation list and add css hooks for the first and last positions. -->
-                  <xsl:choose>
-                    <xsl:when test="position()=1 and position()=last()">single</xsl:when>
-                    <xsl:when test="position()=1">first</xsl:when>
-                    <xsl:when test="position()=last()">last</xsl:when>
-                    <xsl:otherwise></xsl:otherwise>
-                  </xsl:choose>
-                </xsl:variable>
-                <li id="uPfname_{@fname}" class="portal-subnav {$SUBNAV_POSITION}"> <!-- Each subnavigation menu item.  The unique ID can be used in the CSS to give each menu item a unique icon, color, or presentation. -->
-                  <xsl:variable name="portletSubNavLink">
-                    <xsl:call-template name="portalUrl">
-                        <xsl:with-param name="url">
-                            <url:portal-url>
-                                <url:layoutId><xsl:value-of select="@ID"/></url:layoutId>
-                                <url:portlet-url state="MAXIMIZED" copyCurrentRenderParameters="true" />
-                            </url:portal-url>
-                        </xsl:with-param>
-                    </xsl:call-template>
-                  </xsl:variable>
-                  <a href="{$portletSubNavLink}" title="{@description}" class="portal-subnav-link">  <!-- Navigation item link. -->
-                    <span class="portal-subnav-label"><xsl:value-of select="@title"/></span>
-                  </a>
-                </li>
-              </xsl:for-each>
+		   <xsl:for-each	select="//navigation/tab[@activeTab='true']/tabChannel">
+			<!-- esup : add test hide from desktop -->
+			<xsl:if test="not(@hideFromDesktop='true')">
+				<!-- esup : end test hide from desktop -->
+				<xsl:variable name="SUBNAV_POSITION"> <!-- Determine the position of the navigation option within the whole navigation 
+						list and add css hooks for the first and last positions. -->
+					<xsl:choose>
+						<xsl:when test="position()=1 and position()=last()">
+							single
+						</xsl:when>
+						<xsl:when test="position()=1">
+							first
+						</xsl:when>
+						<xsl:when test="position()=last()">
+							last
+						</xsl:when>
+						<xsl:otherwise></xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+				<li id="uPfname_{@fname}" class="portal-subnav {$SUBNAV_POSITION}"> <!-- Each subnavigation menu item. The unique ID can be used in the CSS to 
+						give each menu item a unique icon, color, or presentation. -->
+					<xsl:variable name="portletSubNavLink">
+						<xsl:call-template name="portalUrl">
+							<xsl:with-param name="url">
+								<url:portal-url>
+									<url:layoutId><xsl:value-of select="@ID" /></url:layoutId>
+									<url:portlet-url state="MAXIMIZED"
+										copyCurrentRenderParameters="true" />
+								</url:portal-url>
+							</xsl:with-param>
+						</xsl:call-template>
+					</xsl:variable>
+					<a href="{$portletSubNavLink}" title="{@description}" class="portal-subnav-link">  <!-- Navigation item link. -->
+						<span class="portal-subnav-label">
+							<xsl:value-of select="@title" />
+						</span>
+					</a>
+				</li>
+			<!-- esup : add test hide from desktop -->
+			</xsl:if>
+			<!-- esup : end add test hide from desktop -->
+			</xsl:for-each>
               
             </xsl:otherwise>
           </xsl:choose>
