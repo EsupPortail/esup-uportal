@@ -115,7 +115,7 @@
         <NewsReaderPortlet.version>3.0.2</NewsReaderPortlet.version>
         <NotificationPortlet.version>1.0.0</NotificationPortlet.version>
         <SimpleContentPortlet.version>1.0.2</SimpleContentPortlet.version>
-        <WeatherPortlet.version>1.0.9</WeatherPortlet.version>
+        <WeatherPortlet.version>1.0.9</WeatherPortlet.version> <!-- ESUP: si version superieure a 1.0.9, ne pas oublier de faire un revert sur le commit "WeatherPortlet i18n: patch edit.jsp : WPT-44 & WPT-55 jasig/WeatherPortlet" -->
         <WebProxyPortlet.version>1.1.6</WebProxyPortlet.version>
 
         <!-- Project Dependency Version Properties -->
