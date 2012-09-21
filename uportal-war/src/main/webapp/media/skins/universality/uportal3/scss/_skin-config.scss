@@ -1,6 +1,8 @@
 //====================================
-// Skin Config
+// UPORTAL3 SKIN: Config
 //====================================
+// This file is written in SASS. To find out how to install SASS to generate CSS visit http://sass-lang.com
+
 // Configure these settings to make both broad and fine adjustments to the skin.
 // If there isn't a configuration here you need, make an override in "_skin-overrides.scss".
 //
@@ -90,6 +92,11 @@ $webSearchInputRoundTL			: 0.6em;
 $webSearchInputRoundTR			: 0;
 $webSearchInputRoundBR			: 0;
 $webSearchInputRoundBL			: 0.6em;
+// Tips
+
+// Emergency Alerts
+$headerBlockBackground      : $c1darker;
+
 
 //====================================
 // Navigation
@@ -132,7 +139,7 @@ $navTabActiveHoverLink			: $white;
 $navTabActiveHoverTextShadow	: dark;
 // Add Tab
 $navAddTabTopPosition			: 7px;
-$navAddTabPadding				: 2px 8px 2px 20px;
+$navAddTabPadding				: 4px 8px 2px 20px;
 $navAddTabBackground			: transparent;
 $navAddTabBorder				: 1px solid $c2light;
 $navAddTabRound					: 5px;
@@ -285,7 +292,6 @@ $footerText						: $graydarker;
 $footerLink						: $gray;
 $footerLinkDecoration			: none;
 $footerLinkHover				: $c1light;
-$footerInnerWidth				: 620px;
 $footerInnerPadding				: 25px;
 $footerFontSize					: 80%;
 $footerInnerBackground			: transparent url("images/portal_poweredby.png") 25px 65px no-repeat;
@@ -541,7 +547,9 @@ $galleryRILinkBackgroundHover	: $c1dark;
 $galleryRILinkGradient1Hover	: $c1light;
 $galleryRILinkGradient2Hover	: $c1dark;
 $galleryRISelectedBackground	: $dgraydark;
-$galleryRISelectedBorder		: 3px solid $c1;
+$galleryRISelectedBorderWidth : 3px;
+$galleryRISelectedBorderStyle : solid;
+$galleryRISelectedBorderColor : $c1;
 $galleryPagerText				: $white;
 $galleryPagerButtonBackground	: $dgraylight;
 $galleryPagerButtonBorder		: 1px solid $dgraylightest;

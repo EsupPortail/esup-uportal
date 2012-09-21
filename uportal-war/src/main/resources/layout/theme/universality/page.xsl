@@ -47,8 +47,8 @@
     xmlns:upMsg="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanMessageHelper"
     xmlns:url="https://source.jasig.org/schemas/uportal/layout/portal-url"
     xsi:schemaLocation="
-            https://source.jasig.org/schemas/uportal/layout/portal-url ../../../xsd/layout/portal-url-4.0.xsd"
-    exclude-result-prefixes="url upAuth upGroup upMsg" 
+            https://source.jasig.org/schemas/uportal/layout/portal-url https://source.jasig.org/schemas/uportal/layout/portal-url-4.0.xsd"
+    exclude-result-prefixes="url upAuth upGroup upMsg dlm xsi" 
     version="1.0">
   
   <!-- ========== TEMPLATE: PAGE ========== -->
@@ -83,7 +83,7 @@
       </xsl:choose>
     </xsl:variable>
     
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <html lang="{$USER_LANG}">
       <head>
         <title>
           <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
@@ -97,8 +97,8 @@
           </xsl:choose>
           <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
         </title>
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <xsl:if test="/layout_fragment">
         	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
         	<meta http-equiv="pragma" content="no-cache" />
@@ -116,6 +116,8 @@
             var up = up || {};
             up.jQuery = jQuery.noConflict(true);
             up.fluid = fluid;
+            up._ = _.noConflict();
+            up.Backbone = Backbone.noConflict();
             fluid = null;
             fluid_1_4 = null;
         </script>
@@ -245,8 +247,8 @@
       
         <!-- ****** BODY LAYOUT ****** -->
         <div id="portalPageBodyLayout">
-          <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
         	<xsl:attribute name="class"> <!-- Write appropriate FSS class based on use of sidebar and number of columns to produce column layout. -->
+            <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
           	<xsl:choose>
             	<xsl:when test="$AUTHENTICATED='true'"> <!-- Logged in -->
               	<xsl:choose>
@@ -504,7 +506,7 @@
    | This template outputs a script to ensure that when a sidebar is used, all columns of the content contaier are the same height (fixes collapsed content area due to floated sidebar, which sometimes has a greater height). The issue only occurs when there is a floated sidebar, so the script is set to run only when a sidebar is present.
   -->
   <xsl:template name="js.content.height">
-		<script type="text/javascript" language="javascript">
+		<script type="text/javascript">
             // Run function when document is ready (fully loaded).
             up.jQuery(document).ready(function(){
                 // set function for determining and setting height.

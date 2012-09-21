@@ -19,6 +19,7 @@
 
 package org.jasig.portal.security.provider;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -60,6 +61,8 @@ import org.jasig.portal.spring.locator.PortletCategoryRegistryLocator;
 import org.jasig.portal.utils.Tuple;
 import org.jasig.portal.utils.cache.CacheFactory;
 import org.jasig.portal.utils.cache.CacheKey;
+import org.jasig.portal.utils.cache.CacheKey.CacheKeyBuilder;
+import org.jasig.portal.utils.cache.UsernameTaggedCacheEntryPurger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -444,8 +447,16 @@ throws AuthorizationException
     @RequestCache
     public boolean doesPrincipalHavePermission(IAuthorizationPrincipal principal, String owner, String activity,
             String target, IPermissionPolicy policy) throws AuthorizationException {
-        final CacheKey key = CacheKey.build(AuthorizationImpl.class.getName(), policy.getClass(), principal.getKey(),
+        
+        final CacheKeyBuilder<Serializable, Serializable> cacheKeyBuilder = CacheKey.builder(AuthorizationImpl.class.getName());
+        final String username = principal.getKey();
+        if (IPerson.class.equals(principal.getType())) {
+            cacheKeyBuilder.addTag(UsernameTaggedCacheEntryPurger.createCacheEntryTag(username));
+        }
+        cacheKeyBuilder.addAll(policy.getClass(), username,
                 principal.getType(), owner, activity, target);
+        
+        final CacheKey key = cacheKeyBuilder.build();
 
         final Element element = this.doesPrincipalHavePermissionCache.get(key);
         if (element != null) {
@@ -479,7 +490,6 @@ throws AuthorizationException
  * @exception AuthorizationException indicates authorization information could not
  * be retrieved.
  */
-@RequestCache
 public IPermission[] getAllPermissionsForPrincipal
     (IAuthorizationPrincipal principal,
     String owner,
@@ -901,20 +911,28 @@ throws AuthorizationException
         }
         else {
         	containingGroups = new HashSet<String>();
-        	IGroupMember targetEntity = GroupService.findGroup(target);
-    		if (targetEntity == null) {
-    			if (target.startsWith(IPermission.PORTLET_PREFIX)) {
-    				targetEntity = GroupService.getGroupMember(target.replace(IPermission.PORTLET_PREFIX, ""), IPortletDefinition.class);
-    			} else {
-    				targetEntity = GroupService.getGroupMember(target, IPerson.class);
-    			}
-    		}
-    		
-    		if (targetEntity != null) {
-    			for (Iterator containing = targetEntity.getAllContainingGroups(); containing.hasNext();) {
-    				containingGroups.add(((IEntityGroup)containing.next()).getKey());
-    			}
-    		}
+        	
+        	//Ignore target entity lookups for the various synthetic ALL targets
+        	if (!IPermission.ALL_CATEGORIES_TARGET.equals(target) &&
+                    !IPermission.ALL_GROUPS_TARGET.equals(target) &&
+                    !IPermission.ALL_PORTLETS_TARGET.equals(target) &&
+                    !IPermission.ALL_TARGET.equals(target)) {
+        	    
+            	IGroupMember targetEntity = GroupService.findGroup(target);
+        		if (targetEntity == null) {
+                    if (target.startsWith(IPermission.PORTLET_PREFIX)) {
+        				targetEntity = GroupService.getGroupMember(target.replace(IPermission.PORTLET_PREFIX, ""), IPortletDefinition.class);
+        			} else {
+        				targetEntity = GroupService.getGroupMember(target, IPerson.class);
+        			}
+        		}
+        		
+        		if (targetEntity != null) {
+        			for (Iterator containing = targetEntity.getAllContainingGroups(); containing.hasNext();) {
+        				containingGroups.add(((IEntityGroup)containing.next()).getKey());
+        			}
+        		}
+            }
     		
     		this.entityParentsCache.put(new Element(target, containingGroups));
         	

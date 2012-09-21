@@ -26,9 +26,10 @@
     <portlet:param name="_eventId" value="select"/>
     <portlet:param name="username" value="USERNAME"/>
 </portlet:actionURL>
+<c:set var="n"><portlet:namespace/></c:set>
 
 <!-- Portlet -->
-<div class="fl-widget portlet prs-lkp view-lookup" role="section">
+<div id="${n}" class="fl-widget portlet prs-lkp view-lookup" role="section">
 
 	<!-- Portlet Titlebar -->
     <div class="fl-widget-titlebar titlebar portlet-titlebar" role="sectionhead">
@@ -37,56 +38,86 @@
     
     <!-- Portlet Content -->
     <div class="fl-widget-content content portlet-content" role="main">
-        
-        <div class="portlet-form">
-            <form id="${n}personQueryForm" action="${queryUrl}">
-                <table class="purpose-layout">
-                    <tbody>
-                        <c:forEach var="queryAttribute" items="${queryAttributes}">
-                            <tr>
-                                <td class="label">
-                                    <label for="attributes['${queryAttribute}'].value">
-                                        <spring:message code="attribute.displayName.${queryAttribute}" text="${queryAttribute}"/> (${ fn:escapeXml(queryAttribute) })
-                                    </label>
-                                </td>
-                                <td>
-                                    <input id="attributes['${queryAttribute}'].value" name="${queryAttribute}"/>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>            
-                </table>
-				
+
+        <div class="portlet-content">
+            <form id="${n}searchForm" action="javascript:;">
+                <select id="${n}queryAttribute" name="queryAttribute">
+                        <option value=""><spring:message code="default.directory.attributes"/></option>
+                    <c:forEach var="queryAttribute" items="${queryAttributes}">
+                        <option value="${ queryAttribute }">
+                            <spring:message code="attribute.displayName.${queryAttribute}" text="${queryAttribute}"/>
+                        </option>
+                    </c:forEach>
+                </select>
+                <input id="${n}queryValue" type="text" name="queryValue"/>
+                
                 <!-- Buttons -->
                 <div class="buttons">
                     <spring:message var="searchButtonText" code="search" />
-                    <input class="button primary" type="submit" class="button" name="_eventId_search" value="${searchButtonText}" />
-                    
-                    <c:if test="${showCancelButton == 'true'}">
-                        <portlet:renderURL var="cancelUrl">
-                            <portlet:param name="execution" value="${flowExecutionKey}"/>
-                            <portlet:param name="_eventId" value="cancel"/>
-                        </portlet:renderURL>
-                        <a class="button" class="button" href="${ cancelUrl }">
-                            <spring:message code="cancel" />
-                        </a>
-                    </c:if>
+                    <input class="button primary" type="submit" class="button" value="${searchButtonText}" />
+
+                    <portlet:renderURL var="cancelUrl">
+                        <portlet:param name="execution" value="${flowExecutionKey}"/>
+                        <portlet:param name="_eventId" value="cancel"/>
+                    </portlet:renderURL>
+                    <a class="button" class="button" href="${ cancelUrl }">
+                        <spring:message code="cancel" />
+                    </a>
                 </div>
                 
             </form>
-        </div>
-        <div id="${n}searchResults" style="display:none">
-            <ul class="person-search-results">
-                <li class="person-search-result">
-                    <a class="person-link" href="">Person name 1</a>
-                    <table>
-                        <tr class="person-attribute">
-                            <td class="person-attribute-name">Name:</td> 
-                            <td class="person-attribute-value">Value</td>
+        
+        <div id="${n}searchResults" class="portlet-section" style="display:none" role="region">
+            <div class="titlebar">
+                <h3 role="heading" class="title">Search Results</h3>
+            </div>
+            <p class="no-users-message" style="display:none"><spring:message code="no.matching.users"/></p>
+
+            <div class="results-pager">
+                <div class="view-pager flc-pager-top">
+                    <ul id="pager-top" class="fl-pager-ui">
+                        <li class="flc-pager-previous"><a href="#">&lt; <spring:message code="previous"/></a></li>
+                        <li>
+                             <ul class="flc-pager-links demo-pager-links" style="margin:0; display:inline">
+                                 <li class="flc-pager-pageLink"><a href="#">1</a></li>
+                                 <li class="flc-pager-pageLink-skip">...</li>
+                                 <li class="flc-pager-pageLink"><a href="#">2</a></li>
+                             </ul>
+                        </li>
+                        <li class="flc-pager-next"><a href="#"><spring:message code="next"/> &gt;</a></li>
+                        <li>
+                            <span class="flc-pager-summary"><spring:message code="show"/></span>
+                            <span> <select class="pager-page-size flc-pager-page-size">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select></span> <spring:message code="per.page"/>
+                        </li>
+                    </ul>
+                </div>
+                
+                <table id="${n}resultsTable" xmlns:rsf="http://ponder.org.uk">
+                    <thead>
+                        <tr rsf:id="header:">
+                            <th id="${n}displayName" class="flc-pager-sort-header">
+                                <a rsf:id="displayName" href="javascript:;">Name</a>
+                            </th>
+                            <th id="${n}username" class="flc-pager-sort-header">
+                                <a rsf:id="username" href="javascript:;">Username</a>
+                            </th>
                         </tr>
-                    </table>
-                </li>
-            </ul>
+                    </thead>
+                    <tbody id="${n}resultsBody">
+                        <tr rsf:id="row:">
+                            <td headers="${n}displayName">
+                                <a href="javascript:;" rsf:id="displayName">Name</a>
+                            </td>
+                            <td headers="${n}username" rsf:id="username">Username</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
@@ -96,77 +127,84 @@
     up.jQuery(function() {
         var $ = up.jQuery;
         var fluid = up.fluid;
-
-        var templates;
-
-        var displayAttributes = [<c:forEach items="${displayAttributes}" var="attribute" varStatus="status">{ key: '<spring:escapeBody javaScriptEscape="true">${ attribute }</spring:escapeBody>', displayName: '<spring:message javaScriptEscape="true" code="attribute.displayName.${attribute}"/> (<spring:escapeBody javaScriptEscape="true">${attribute}</spring:escapeBody>)' }${ !status.last ? ',' : ''}</c:forEach>];
+        var pager = null;
         
-        var cutpoints = [
-            { id: "personSearchResult:", selector: ".person-search-result" },
-            { id: "personSearchLink", selector: ".person-link" },
-            { id: "personAttribute:", selector: ".person-attribute" },
-            { id: "personAttributeName", selector: ".person-attribute-name" },
-            { id: "personAttributeValue", selector: ".person-attribute-value" },
-        ];
+        var attrs = <json:serialize value="${ queryAttributes }"/>;
 
-        var getResultsTree = function (people) {
-            var tree = { children: [] };
+        var options = {
+            annotateColumnRange: 'displayName',
+            columnDefs: [
+                 { key: "displayName", valuebinding: "*.displayName", sortable: true,
+                     components: {
+                         target: "${selectPersonUrl}".replace("USERNAME", '${"${*.username}"}'),
+                         linktext: '${"${*.displayName}"}'
+                     }
 
-            $(people).each(function (idx, person) {
-                var component = {
-                    ID: "personSearchResult:",
-                    children: [
-                        {
-                            ID: "personSearchLink", 
-                            linktext: person.attributes.displayName || person.name, 
-                            target: "${selectPersonUrl}".replace("USERNAME", person.name)
-                        }
-                    ]
-                };
-                $(displayAttributes).each(function (idx2, attribute) {
-                    component.children.push({
-                        ID: "personAttribute:",
-                        children: [
-                            { ID: "personAttributeName", value: attribute.displayName },
-                            { ID: "personAttributeValue", value: person.attributes[attribute.key] ? person.attributes[attribute.key][0] : '' }
-                        ]
+                 },
+                 { key: "username", valuebinding: "*.username", sortable: true }
+             ],
+            bodyRenderer: {
+              type: "fluid.pager.selfRender",
+              options: {
+                  selectors: {
+                     root: "#${n}resultsTable"
+                  },
+                  row: "row:"
+                }
+                
+            },
+            pagerBar: {type: "fluid.pager.pagerBar", options: {
+              pageList: {type: "fluid.pager.renderedPageList",
+                options: { 
+                  linkBody: "a"
+                }
+              }
+            }}
+        };
+        
+        var showSearchResults = function (data) {
+            $.get(
+                "<c:url value="/api/people.json"/>", 
+                data, 
+                function(data) {
+                    options.dataModel = [];
+                    $(data.people).each(function (idx, person) {
+                        options.dataModel.push({ username: person.name, displayName: person.attributes.displayName[0] });
                     });
-                });
-                tree.children.push(component);
-            });
-            return tree;
+                    if (options.dataModel.length == 0) {
+                    	console.log("none");
+                        $("#${n} .no-users-message").show();
+                    	$("#${n} .results-pager").hide();
+                    } else {
+                    	console.log(options.dataModel);
+                        if (pager) {
+                            up.refreshPager(pager, options.dataModel);
+                        } else {
+                            pager = up.fluid.pager("#${n}searchResults", options);
+                        }
+                        $("#${n} .no-users-message").hide();
+                        $("#${n} .results-pager").show();
+                    }
+                    $("#${n}searchResults").show();
+                }
+            );
         };
         
         $(document).ready(function(){
-            $("#${n}personQueryForm").submit(function() {
-                var form = $(this).serializeArray();
+            $("#${n}searchForm").submit(function() {
                 var data = { searchTerms: [] };
-    
-                $(form).each(function (idx, item) {
-                    if (item.value !== '') {
-                        data[item.name] = item.value;
-                        data.searchTerms.push(item.name);
-                    }
-                });
-    
-                if (data.searchTerms.length > 0) {
-                    $.get(
-                        "<c:url value="/api/people.json"/>", 
-                        data, 
-                        function(data) {
-                            var tree = getResultsTree(data.people);
-                            if (!templates) {
-                                templates = fluid.selfRender($("#${n}searchResults"), tree, { cutpoints: cutpoints });
-                                $("#${n}searchResults").show();
-                            } else {
-                                fluid.reRender(templates, $("#${n}searchResults"), tree, { cutpoints: cutpoints });
-                            }
-                        }
-                    );
-                } else if (templates) {
-                    var tree = { children: [] };
-                    fluid.reRender(templates, $("#${n}searchResults"), tree, { cutpoints: cutpoints });
+                var searchTerm = $("#${n}queryValue").val();
+                var queryTerm = $("#${n}queryAttribute").val();
+                if (!queryTerm) {
+                    $(attrs).each(function (idx, attr) {
+                        data.searchTerms.push(attr);
+                        data[attr] = searchTerm;
+                    });
+                } else {
+                	data.searchTerms.push(queryTerm);
+                	data[queryTerm] = searchTerm;
                 }
+                showSearchResults(data);
                 return false;
             }); 
         });

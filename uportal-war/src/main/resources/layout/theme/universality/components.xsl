@@ -40,33 +40,33 @@
  | used by the theme
 -->
 <xsl:stylesheet 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-    xmlns:dlm="http://www.uportal.org/layout/dlm"
-    xmlns:upAuth="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanAuthorizationHelper"
-    xmlns:upGroup="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanGroupMembershipHelper"
-    xmlns:upMsg="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanMessageHelper"
-    xmlns:url="https://source.jasig.org/schemas/uportal/layout/portal-url"
-    xsi:schemaLocation="
-            https://source.jasig.org/schemas/uportal/layout/portal-url https://source.jasig.org/schemas/uportal/layout/portal-url-4.0.xsd"
-    exclude-result-prefixes="url upAuth upGroup upMsg" 
-    version="1.0">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+  xmlns:dlm="http://www.uportal.org/layout/dlm"
+  xmlns:upAuth="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanAuthorizationHelper"
+  xmlns:upGroup="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanGroupMembershipHelper"
+  xmlns:upMsg="http://xml.apache.org/xalan/java/org.jasig.portal.security.xslt.XalanMessageHelper"
+  xmlns:url="https://source.jasig.org/schemas/uportal/layout/portal-url"
+  xsi:schemaLocation="
+          https://source.jasig.org/schemas/uportal/layout/portal-url https://source.jasig.org/schemas/uportal/layout/portal-url-4.0.xsd"
+  exclude-result-prefixes="url upAuth upGroup upMsg dlm xsi" 
+  version="1.0">
     
-    <!-- ========== TEMPLATE: PORTAL PIPE ========== -->
-    <!-- =========================================== -->
-    <!--
-     | This template renders skip-to navigation.
-    -->
-    <xsl:template name="skip.nav">
-		<div id="portalSkipNav">
-	      <a href="#mainNavigation" title="{upMsg:getMessage('skip.to.page.navigation', $USER_LANG)}" id="skipToNav" accesskey="N">
-	        <xsl:value-of select="upMsg:getMessage('skip.to.page.navigation', $USER_LANG)"/>
-	      </a>
-	      <a href="#pageContent" title="{upMsg:getMessage('skip.to.page.content', $USER_LANG)}" id="skipToContent" accesskey="C">
-	        <xsl:value-of select="upMsg:getMessage('skip.to.page.content', $USER_LANG)"/>
-	      </a>
-	    </div>
-    </xsl:template>
+  <!-- ========== TEMPLATE: PORTAL PIPE ========== -->
+  <!-- =========================================== -->
+  <!--
+   | This template renders skip-to navigation.
+  -->
+  <xsl:template name="skip.nav">
+  	<div id="portalSkipNav">
+      <a href="#portalNavigation" title="{upMsg:getMessage('skip.to.page.navigation', $USER_LANG)}" id="skipToNav" accesskey="N">
+        <xsl:value-of select="upMsg:getMessage('skip.to.page.navigation', $USER_LANG)"/>
+      </a>
+      <a href="#portalPageBody" title="{upMsg:getMessage('skip.to.page.content', $USER_LANG)}" id="skipToContent" accesskey="C">
+        <xsl:value-of select="upMsg:getMessage('skip.to.page.content', $USER_LANG)"/>
+      </a>
+    </div>
+  </xsl:template>
 
   <!-- ========== TEMPLATE: PORTAL PIPE ========== -->
   <!-- =========================================== -->
@@ -211,17 +211,7 @@
   <xsl:template name="portal.page.bar.link.sitemap">
     <xsl:if test="$AUTHENTICATED='true'">
     	<li class="link-sitemap">
-    	  <xsl:variable name="layoutSitemapUrl">
-            <xsl:call-template name="portalUrl">
-                <xsl:with-param name="url">
-                    <url:portal-url>
-                        <url:fname>layout-sitemap</url:fname>
-                        <url:portlet-url state="MAXIMIZED" />
-                    </url:portal-url>
-                </xsl:with-param>
-            </xsl:call-template>
-    	  </xsl:variable>
-    	  <a href="{$layoutSitemapUrl}" title="{upMsg:getMessage('go.to.site.map', $USER_LANG)}">
+    	  <a href="#sitemap" title="{upMsg:getMessage('go.to.site.map', $USER_LANG)}">
           <span><xsl:value-of select="upMsg:getMessage('site.map', $USER_LANG)"/></span>
         </a>
       </li>
@@ -552,18 +542,16 @@
    | This template renders the page title.
   -->
   <xsl:template name="page.title">
-  	<a name="pageContent" class="skip-link" title="Reference anchor: the starting point of the page content"> <!-- Skip navigation target. -->
-      <h1 id="portalPageBodyTitle">
-        <xsl:choose>
-          <xsl:when test="//focused"> <!-- When focused, include the focused portlet title -->
-            {up-portlet-title(<xsl:value-of select="//focused/channel/@ID" />)}
-          </xsl:when>
-          <xsl:otherwise> <!-- Otherwise, just the current tab name -->
-            <xsl:value-of select="/layout/navigation/tab[@activeTab='true']/@name"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </h1>
-    </a>
+    <h1 id="portalPageBodyTitle">
+      <xsl:choose>
+        <xsl:when test="//focused"> <!-- When focused, include the focused portlet title -->
+          {up-portlet-title(<xsl:value-of select="//focused/channel/@ID" />)}
+        </xsl:when>
+        <xsl:otherwise> <!-- Otherwise, just the current tab name -->
+          <xsl:value-of select="/layout/navigation/tab[@activeTab='true']/@name"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </h1>
   </xsl:template>
   <!-- ========================================== -->
   
