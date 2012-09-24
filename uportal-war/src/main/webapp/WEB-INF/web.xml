@@ -385,10 +385,8 @@
 
     <servlet>
       <servlet-name>AxisServlet</servlet-name>
-      <display-name>Apache-Axis Servlet</display-name>
       <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
     </servlet>
-
 
 
     <!-- [INSERT JSPC FRAGMENT HERE] -->
@@ -425,6 +423,7 @@
     <servlet-mapping>
         <servlet-name>MVCDispatcherServlet</servlet-name>
         <url-pattern>/api/*</url-pattern>
+        <url-pattern>/EsupMonitor</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

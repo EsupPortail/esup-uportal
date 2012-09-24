@@ -32,11 +32,14 @@
     <!-- Spring Security pre-authentication -->
     <security:http auto-config='true'>
         <security:custom-filter position="PRE_AUTH_FILTER" ref="portalPreAuthenticationFilter" />
-        <security:intercept-url pattern="**" />
+        <security:intercept-url pattern="**"/>
         <security:session-management session-authentication-strategy-ref="sessionAuthenticationStrategy" />
     </security:http>
-    
-    <bean id="sessionAuthenticationStrategy" class="org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy" />
+ 	
+    <bean id="sessionAuthenticationStrategy" 
+    	class="org.esupportail.portal.utils.RegistrySessionControlStrategy">
+    	<constructor-arg name="sessionRegistry" ref="sessionRegistry" />
+ 	</bean>
 
     <bean id="portalPreAuthenticationFilter"
         class="org.jasig.portal.spring.security.preauth.PortalPreAuthenticatedProcessingFilter">
@@ -51,6 +54,8 @@
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider ref="preAuthProvider"/>
     </security:authentication-manager>
+    
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
 
     <!--  String encryption service -->
     <bean id="stringEncryptionService" class="org.jasig.portal.security.JasyptPBEStringEncryptionServiceImpl">
