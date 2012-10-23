@@ -1,0 +1,71 @@
+Bienvenue sur esup-uportal, entrepôt de travail du GT EsupV4
+https://www.esup-portail.org/display/ESUPMU/Groupe+de+travail+ESUP+V4
+
+La documentation de référence pour l'installation d'uportal4 s'applique également au package esup-uportal : 
+https://wiki.jasig.org/display/UPM40/Installing+uPortal
+
+
+Notes d'installation :
+
+* installation tomcat
+  * tar xzf apache-tomcat-6.0.35.tar.gz -C /opt
+  * ln -s /opt/apache-tomcat-6.0.35 /opt/tomcat-esup
+  * emacs conf/catalina.properties
+    * shared.loader=${catalina.base}/shared/classes,${catalina.base}/shared/lib/*.jar
+
+* creation base de données postgresql (mysql non recommandé - cf https://wiki.jasig.org/display/UPM40/MySQL )
+  * psql
+    * create USER esup4 with password 'esup4';
+    *  create database esup4;
+    * grant all privileges on database esup4 to esup4;
+  * vérification pg_hba.conf : 
+    * host    all         all         127.0.0.1/8     password
+
+* Apache en virtualhost
+  * ProxyPass / ajp://tomcat.univ-ville.fr:8009/
+
+* récupération esup-uportal 
+  * git clone git@github.com:EsupPortail/esup-uportal.git
+
+* build.properties
+  * ln -s build.properties.sample build.properties
+  * emacs build.properties
+    * server.home=/opt/tomcat-esup
+
+* filters/esup.properties
+  * rép. de travail : 
+    * environment.build.server.webapps=/opt/tomcat-esup/webapps
+    * environment.build.server.home=/opt/tomcat-esup
+    * environment.build.log.dir=/opt/tomcat-esup/logs
+  * virtualhost 
+    * environment.build.uportal.server=ent.univ-ville.fr
+    * environment.build.real.uportal.server=ent.univ-ville.fr
+  * base de données 
+    * environment.build.hibernate.connection.driver_class=org.postgresql.Driver
+    * environment.build.hibernate.connection.url=jdbc:postgresql://pg.mon-univ.fr/esup4
+    * environment.build.hibernate.connection.username=esup4
+    * environment.build.hibernate.connection.password=esup4
+    * environment.build.jdbc.groupId=postgresql
+    * environment.build.jdbc.artifactId=postgresql
+    * environment.build.jdbc.version=9.0-801.jdbc4
+  * cas
+    * environment.build.cas.server=cas.univ-ville.fr
+    * environment.build.cas.protocol=https
+    * environment.build.cas.context=
+  * ldap
+    * environment.build.ldap.url=ldap://ldap.univ-ville.fr
+    * environment.build.ldap.baseDN=dc=univ-ville,dc=fr
+    * environment.build.ldap.bindDN=
+    * environment.build.ldap.bindPasswd=
+    * environment.build.ldap.pooled=false
+    * environment.build.ldap.username=uid
+
+* déploiement
+  * la première fois : 
+    * ant -Dmaven.test.skip=true clean initportal 
+  * puis (pour prise en compte modifs configs) :
+    * ant -Dmaven.test.skip=true clean deploy-ear
+
+* lancement
+  * cd /opt/tomcat-esup/bin ; ./startup.sh ; tail -f /opt/tomcat-esup/logs/*
+  * firefox http://ent.univ-ville.fr/uPortal/
