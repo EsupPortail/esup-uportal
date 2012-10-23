@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jasig.portal.portlets-overlay</groupId>
         <artifactId>uportal-portlets-overlay</artifactId>
-        <version>4.0.7-SNAPSHOT</version>
+        <version>4.0.7</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -160,6 +160,15 @@
 
     <build>
         <finalName>cas</finalName>
+        <filters>
+            <filter>../../${filters.file}</filter>
+        </filters>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
