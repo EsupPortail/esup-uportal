@@ -99,6 +99,23 @@
     </selection-test>
   </group>
   
+  <!--==================== Administrateur portail par defaut ====================-->
+  
+  <group>
+    <group-key>adminEsup</group-key>
+    <group-name>Administrateurs ENT</group-name>
+    <group-description>Administrateurs du portail esup-portail</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>${environment.build.adminEsupAattribute}</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>${environment.build.adminEsupValue}</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+  
   <!--==================== Other Examples ====================-->
 
 

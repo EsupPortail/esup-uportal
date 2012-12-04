@@ -25,6 +25,7 @@
   <creator>system</creator>
   <description>Administrateurs du portail</description>
   <children>
+    <group>Administrateurs ENT</group>
     <literal>admin</literal>
     <literal>admin-lo</literal>
   </children>
