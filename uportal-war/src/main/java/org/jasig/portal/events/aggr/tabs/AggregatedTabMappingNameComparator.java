@@ -16,24 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.jasig.portal.utils.jdbc;
+package org.jasig.portal.events.aggr.tabs;
 
-import javax.sql.DataSource;
+import org.jasig.portal.utils.ComparableExtractingComparator;
+import java.util.Comparator;
 
-import org.jasig.portal.concurrency.FunctionWithoutResult;
+public class AggregatedTabMappingNameComparator extends
+        ComparableExtractingComparator<AggregatedTabMapping, String> {
+    
+    public static Comparator<AggregatedTabMapping> INSTANCE = new AggregatedTabMappingNameComparator();
 
-/**
- * Allows for a DataSource to have the appropriate validation query found
- * 
- * @author Eric Dalquist
- */
-public interface DelayedValidationQueryResolver {
-
-	/**
-	 * @param dataSource The {@link DataSource} to find the validation query for
-	 * @param validationQueryCallback The callback to execute when the validation query is found
-	 */
-	void registerValidationQueryCallback(DataSource dataSource,
-			FunctionWithoutResult<String> validationQueryCallback);
-
+    @Override
+    protected String getComparable(AggregatedTabMapping o) {
+        return o.getDisplayString();
+    }
 }

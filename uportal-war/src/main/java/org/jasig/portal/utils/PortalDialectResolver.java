@@ -39,7 +39,7 @@ public class PortalDialectResolver extends AbstractDialectResolver {
         final int databaseMinorVersion = metaData.getDatabaseMinorVersion();
         
         if ("MySQL".equals(databaseName) && 5 == databaseMajorVersion) {
-            return new MySQL5SpecificDBDialect();
+            return new MySQL5InnoDBCompressedDialect();
         }
         
         if ("PostgreSQL".equals(databaseName) && 8 == databaseMajorVersion && databaseMinorVersion <= 1) {

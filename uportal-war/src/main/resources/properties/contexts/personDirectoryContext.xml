@@ -234,10 +234,10 @@
 
     <bean id="uPortalLdapAttributeSource" class="org.jasig.services.persondir.support.ldap.LdapPersonAttributeDao">
         <property name="contextSource" ref="defaultLdapContext" />
-        <property name="baseDN" value="${environment.build.ldap.baseDN}" />
+        <property name="baseDN" value="${ldap.baseDn}" />
         <property name="queryAttributeMapping">
             <map>
-                <entry key="username" value="${environment.build.ldap.username}"/>
+                <entry key="username" value="${ldap.uidAttr}"/>
             </map>
         </property>               
 
@@ -254,9 +254,9 @@
                 <entry key="postalAddress">                 <value>postalAddress</value></entry>
                 <entry key="sn">                            <value>sn</value></entry>
                 <entry key="telephoneNumber">               <value>telephoneNumber</value></entry>
-                <entry key="${environment.build.ldap.username}">                              
+                <entry key="${ldap.uidAttr}">                              
                     <set>
-                        <value>${environment.build.ldap.username}</value>
+                        <value>${ldap.uidAttr}</value>
                         <value>username</value>
                         <value>user.login.id</value>
                     </set>

@@ -56,7 +56,7 @@
      | Example LDAP Server Configuration for LDAP person attribute lookups
      +-->
     <!-- Declare the standard spring-ldap ContextSource objects to define LDAP server connections -->
-    <!-- 
+    <!--
     <bean id="defaultLdapContext" class="org.springframework.ldap.pool.factory.PoolingContextSource">
         <property name="contextSource" ref="defaultLdapContext_target"/>
         <property name="dirContextValidator">
@@ -84,7 +84,7 @@
     
     <bean id="defaultLdapContext_target" class="org.springframework.ldap.core.support.LdapContextSource">
         <property name="url" value="${ldap.url}"/>
-        <property name="base" value=""/>
+        <property name="base" value="${ldap.baseDn}"/>
         <property name="userDn" value="${ldap.userName}"/>
         <property name="password" value="${ldap.password}"/>
         <property name="pooled" value="false"/>
@@ -98,9 +98,10 @@
      | For use with filter esup.properties
      +-->
     <bean id="defaultLdapContext" class="org.springframework.ldap.core.support.LdapContextSource">
-        <property name="url" value="${environment.build.ldap.url}"/>
-        <property name="userDn" value="${environment.build.ldap.bindDN}"/>
-        <property name="password" value="${environment.build.ldap.bindPasswd}"/>
-        <property name="pooled" value="${environment.build.ldap.pooled}"/>      
+        <property name="url" value="${ldap.url}"/>
+        <property name="base" value="${ldap.baseDn}"/>
+        <property name="userDn" value="${ldap.userName}"/>
+        <property name="password" value="${ldap.password}"/>
+        <property name="pooled" value="${ldap.pooled}"/>
     </bean>
 </beans>

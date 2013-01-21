@@ -16,21 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+package org.jasig.portal.events.aggr.login;
 
-package org.jasig.portal.portlets.swapper;
-
-import org.jasig.services.persondir.IPersonAttributes;
-import org.springframework.webflow.context.ExternalContext;
+import org.jasig.portal.events.aggr.BaseGroupedAggregationDiscriminator;
 
 /**
- * @author Eric Dalquist
- * @version $Revision$
+ * Interface to separate Login aggregation events into separate columns for reporting purposes.
+ *
+ * @author James Wennmacher, jameswennmacher@gmail.com
  */
-public interface IIdentitySwapperHelper {
-
-    /**
-     * Sets up the user's session to be elidgable for doign an identity swap.
-     */
-    public void swapAttributes(ExternalContext externalContext, IPersonAttributes person);
+public interface LoginAggregationDiscriminator extends BaseGroupedAggregationDiscriminator {
 
 }

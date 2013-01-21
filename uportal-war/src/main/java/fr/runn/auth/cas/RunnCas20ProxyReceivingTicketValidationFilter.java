@@ -17,6 +17,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jasig.cas.client.util.CommonUtils;
 import org.jasig.portal.security.mvc.LoginController;
+import org.jasig.portal.security.IdentitySwapperManagerImpl;
 
 import fr.runn.RunnUtils;
 
@@ -31,6 +32,10 @@ public class RunnCas20ProxyReceivingTicketValidationFilter implements Filter {
 	private String logoutUrl;
 
 	private String logoutUrlNoEncoded;
+
+        private static final String SWAP_TARGET_UID = IdentitySwapperManagerImpl.class.getName() + ".SWAP_TARGET_UID";
+        private static final String SWAP_ORIGINAL_UID = IdentitySwapperManagerImpl.class.getName() + ".SWAP_ORIGINAL_UID";
+
 
 	public List<RunnTicketValidationFiltersWrapper> getTicketValidationFiltersWrapper() {
 		return ticketValidationFiltersWrapper;
@@ -80,7 +85,7 @@ public class RunnCas20ProxyReceivingTicketValidationFilter implements Filter {
 		// if swap - no cas filter
 		HttpSession s = httpRequest.getSession(false);
 		if(s != null) {
-			if(s.getAttribute(LoginController.SWAP_ORIGINAL_UID) != null || s.getAttribute(LoginController.SWAP_TARGET_UID) != null) {
+			if(s.getAttribute(SWAP_ORIGINAL_UID) != null || s.getAttribute(SWAP_TARGET_UID) != null) {
 				isSwap = true;
 			}
 		}
