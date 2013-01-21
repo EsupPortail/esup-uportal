@@ -54,11 +54,11 @@ Notes d'installation :
     * environment.build.cas.context=
   * ldap
     * environment.build.ldap.url=ldap://ldap.univ-ville.fr
-    * environment.build.ldap.baseDN=dc=univ-ville,dc=fr
-    * environment.build.ldap.bindDN=
-    * environment.build.ldap.bindPasswd=
+    * environment.build.ldap.baseDn=dc=univ-ville,dc=fr
+    * environment.build.ldap.userName=
+    * environment.build.ldap.password=
     * environment.build.ldap.pooled=false
-    * environment.build.ldap.username=uid
+    * environment.build.ldap.uidAttr=uid
 
 * déploiement
   * la première fois : 
