@@ -28,9 +28,9 @@
      | This bean is the ContextSource instance that will be used to connect to LDAP.
      +-->
     <bean id="ldapContext" class="org.springframework.ldap.core.support.LdapContextSource">
-        <property name="url" value="changeme"/>
-        <property name="userDn" value="changeme"/>
-        <property name="password" value="changeme"/>
+        <property name="url" value="ldap://localhost:389"/>
+        <property name="userDn" value="cn=admin,dc=univ,dc=fr"/>
+        <property name="password" value="esup"/>
     </bean>
 
     <!--
@@ -38,7 +38,7 @@
      | tree.  A value of zero or less (negative) disables this feature.
      +-->
     <bean id="groupsTreeRefreshIntervalSeconds" class="java.lang.Long">
-        <constructor-arg><value>900</value></constructor-arg>
+        <constructor-arg><value>120</value></constructor-arg>
     </bean>
 
     <!--
@@ -49,7 +49,17 @@
      | it probably means your baseDn isn't correct!
      +-->
     <bean id="baseDn" class="java.lang.String">
-        <constructor-arg><value>changeme</value></constructor-arg>
+        <constructor-arg><value>ou=groups,dc=univ,dc=fr</value></constructor-arg>
+    </bean>
+
+    <!--
+	ESUP Parameter. 
+	This parameter is used to extract the id path of the groups 
+	form their dn. The id path is expected to be catched from the first group 
+	of the regex.
+    -->
+    <bean id="childGroupKeyRegex" class="java.lang.String">
+        <constructor-arg><value>cn=(.*),ou=groups,dc=univ,dc=fr</value></constructor-arg>
     </bean>
 
     <!--
@@ -61,7 +71,7 @@
      | LDAP query string that will be passed to the search.
      +-->
     <bean id="filter" class="java.lang.String">
-        <constructor-arg><value>(objectCategory=group)</value></constructor-arg>
+        <constructor-arg><value>(objectClass=eduMember)</value></constructor-arg>
     </bean>
 
     <!--
@@ -89,7 +99,7 @@
      | lists the SmartLdap groups each person is a member of.
      +-->
     <bean id="memberOfAttributeName" class="java.lang.String">
-        <constructor-arg><value>memberOf</value></constructor-arg>
+        <constructor-arg><value>isMemberOf</value></constructor-arg>
     </bean>
 
     <!--
@@ -101,7 +111,7 @@
          | Name of the group attribute that tells you its key.
          +-->
         <property name="keyAttributeName">
-            <value>distinguishedName</value>
+            <value>cn</value>
         </property>
         <!--
          | Name of the group attribute that tells you its name.
