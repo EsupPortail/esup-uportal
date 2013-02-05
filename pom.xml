@@ -88,13 +88,28 @@
         <project-site-path>/uportal/${project.version}</project-site-path>
         
         <!-- The JDBC Driver used by uPortal -->
+        
+        <!-- Driver HSQL à décommenter à la demande -->
+        <!--
         <jdbc.groupId>org.hsqldb</jdbc.groupId>
         <jdbc.artifactId>hsqldb</jdbc.artifactId>
         <jdbc.version>${hsqldb.version}</jdbc.version>
+        -->
     
+        <!-- Driver POSTGRESQL à décommenter à la demande -->
+        <!--
         <jdbc.groupId>postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
-        <jdbc.version>9.0-801.jdbc4</jdbc.version>                      
+        <jdbc.version>9.0-801.jdbc4</jdbc.version>      
+        -->
+
+        <!-- Driver MYSQL à décommenter à la demande -->
+        <!--
+        <jdbc.groupId>mysql</jdbc.groupId>
+        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+        <jdbc.version>5.1.22</jdbc.version>      
+        -->
+                        
         <!--
          | Environment name and filters file for environment-specific build
          | settings.  By default <environment.name> is blank, and the filters 
