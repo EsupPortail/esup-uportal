@@ -951,11 +951,11 @@
 	      <!-- uPortal Product Version -->
 	      <div id="portalProductAndVersion">
 	        <p>
-                <a href="http://www.jasig.org/uportal" title="Powered by uPortal ${UP_VERSION}" target="_blank">Powered by uPortal <xsl:value-of select="$UP_VERSION"/></a>, an open-source project by <a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
+                <a href="http://www.jasig.org/uportal" title="Site conçu via uPortal ${UP_VERSION}" target="_blank">Site conçu via uPortal <xsl:value-of select="$UP_VERSION"/></a>, un projet open-source de <a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
                 <xsl:if test="$AUTHENTICATED='true'">
                     <br/>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
-                    <span>Session Key: </span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
+                    <span>Clé de Session: </span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
                 </xsl:if>
             </p>
@@ -964,12 +964,12 @@
       
 	      <!-- Copyright -->
 	      <div id="portalCopyright">
-	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal</a> is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0</a> as approved by the Open Source Initiative (OSI), an <a href="http://www.opensource.org/docs/osd" title="OSI-certified" target="_blank">OSI-certified</a> ("open") and <a href="http://www.gnu.org/licenses/license-list.html" title="Gnu/FSF-recognized" target="_blank">Gnu/FSF-recognized</a> ("free") license.</p>
+	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal</a> est sous license <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache, Version 2.0</a> approuvée par l'Open Source Initiative (OSI), une license <a href="http://www.opensource.org/docs/osd" title="OSI-certified" target="_blank">certifiée OSI</a> ("ouverte") et <a href="http://www.gnu.org/licenses/license-list.html" title="Gnu/FSF-recognized" target="_blank">reconnue par la license Gnu/FSF</a> ("libre").</p>
 	      </div>
       
 	      <!-- Icon Set Attribution -->
 	      <div id="silkIconsAttribution">
-	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icon set 1.3" target="_blank">Silk icon set 1.3</a> courtesy of Mark James.</p>
+	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icon set 1.3" target="_blank">Set d'icônes Silk 1.3</a> avec la permission de Mark James.</p>
 	        <!-- Silk icon set 1.3 by Mark James [ http://www.famfamfam.com/lab/icons/silk/ ], which is licensed under a Creative Commons Attribution 2.5 License. [ http://creativecommons.org/licenses/by/2.5/ ].  This icon set is free for use under the CCA 2.5 license, so long as there is a link back to the author's site.  If the Silk icons are used, this reference must be present in the markup, though not necessarily visible in the rendered page.  If you don't want the statement to visibly render in the page, use CSS to make it invisible. -->
 	      </div>
     	</div>
