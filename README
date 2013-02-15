@@ -34,8 +34,6 @@ Notes d'installation :
 
 * filters/esup.properties
   * rép. de travail : 
-    * environment.build.server.webapps=/opt/tomcat-esup/webapps
-    * environment.build.server.home=/opt/tomcat-esup
     * environment.build.log.dir=/opt/tomcat-esup/logs
   * virtualhost 
     * environment.build.uportal.server=ent.univ-ville.fr
