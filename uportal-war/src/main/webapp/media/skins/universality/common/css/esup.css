@@ -7,3 +7,11 @@
     padding-right: 25px;
     padding-top: 2px;
 }
+
+/* Modification de la largeur des items dans le menu déroulant lors de la francisation */
+#portalNavigation .portal-flyout-container:lang(fr) {
+    display: none;
+    position: absolute;
+    width: 240px;
+    z-index: 100000;
+}
