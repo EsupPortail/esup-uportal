@@ -116,6 +116,12 @@
 				<bean
 					class="org.jasig.portal.cas.authentication.handler.support.PersonDirAuthenticationHandler" 
                     p:user-password-dao-ref="userPasswordDao" />
+
+				<bean class="org.jasig.cas.adaptors.ldap.FastBindLdapAuthenticationHandler" >
+					<property name="filter" value="${environment.build.ldap.uidAttr}=%u,${environment.build.ldap.baseDn}" />
+					<property name="contextSource" ref="contextSource" />
+				</bean>
+
 			</list>
 		</property>
         
@@ -212,4 +218,13 @@
         </bean>
 
     <bean id="auditTrailManager" class="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager" />
+
+    <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="urls">
+            <list>
+                <value>${environment.build.ldap.url}</value>
+           </list>
+        </property>
+    </bean>
+
 </beans>
