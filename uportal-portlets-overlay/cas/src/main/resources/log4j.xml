@@ -34,7 +34,13 @@
       This default ConsoleAppender is used to log all NON perf4j messages
       to System.out
     -->
-    <appender name="null" class="org.apache.log4j.varia.NullAppender" />
+     <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${environment.build.log.logfileDirectory}/cas.log" />
+        <param name="DatePattern" value="'.'${environment.build.log.rollingLogFileDatePattern}" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="${environment.build.log.layoutConversionPattern}" />
+        </layout>
+    </appender>
 
     <!-- Loggers -->
     <!--
@@ -46,7 +52,7 @@
     -->
     <logger name="org.perf4j.TimingLogger" additivity="false">
         <level value="INFO"/>
-        <appender-ref ref="null"/>
+        <appender-ref ref="file"/>
     </logger>
 
     <!--
@@ -65,7 +71,7 @@
 
     <logger name="org.jasig" additivity="true">
         <level value="DEBUG" />
-        <appender-ref ref="null" />
+        <appender-ref ref="file" />
     </logger>
 
     <!--
@@ -75,7 +81,7 @@
     -->
     <logger name="org.jasig.cas.web.flow" additivity="true">
         <level value="INFO" />
-        <appender-ref ref="null" />
+        <appender-ref ref="file" />
     </logger>
 
     <!--
@@ -84,6 +90,6 @@
     -->
     <root>
         <level value="${environment.build.log.rootLevel}"/>
-        <appender-ref ref="null"/>
+        <appender-ref ref="file"/>
     </root>
 </log4j:configuration>
