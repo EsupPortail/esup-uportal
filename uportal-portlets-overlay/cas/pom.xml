@@ -135,6 +135,19 @@
            <type>war</type>
         </dependency>
         
+        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-support-ldap</artifactId>
+            <version>${cas-server.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.inspektr</groupId>
+                    <artifactId>inspektr-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <!-- ===== Test Dependencies ============================== -->
         <dependency>
             <groupId>org.easymock</groupId>
