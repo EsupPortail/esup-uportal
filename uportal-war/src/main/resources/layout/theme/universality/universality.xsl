@@ -172,6 +172,7 @@
    | GREEN
    | Locatlization Settings can be used to change the localization of the theme.
   -->
+	<xsl:param name="MESSAGE_DOC_URL">messages.xml</xsl:param> <!-- Name of the localization file. -->
 	<xsl:param name="USER_LANG">en</xsl:param> <!-- Sets the default user language. -->
   
   
@@ -225,7 +226,7 @@
         <xsl:otherwise>false</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  
+  <xsl:variable name="TOKEN" select="document($MESSAGE_DOC_URL)/theme-messages/tokens[lang($USER_LANG) and (@institution=$INSTITUTION or not(@institution))]/token"/> <!-- Tells the theme how to find appropriate localized token. -->  
   
   <!-- ****** INSTITUTION SETTINGS ****** -->
   <!-- 
@@ -951,11 +952,11 @@
 	      <!-- uPortal Product Version -->
 	      <div id="portalProductAndVersion">
 	        <p>
-                <a href="http://www.jasig.org/uportal" title="Powered by uPortal ${UP_VERSION}" target="_blank">Powered by uPortal <xsl:value-of select="$UP_VERSION"/></a>, an open-source project by <a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
+                <a href="http://www.jasig.org/uportal" title="{$TOKEN[@name='UPORTAL_POWERED']} ${UP_VERSION}" target="_blank"><xsl:value-of select="$TOKEN[@name='UPORTAL_POWERED']"/> <xsl:value-of select="$UP_VERSION"/></a><xsl:value-of select="$TOKEN[@name='OPEN_SOURCE']"/> <a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
                 <xsl:if test="$AUTHENTICATED='true'">
                     <br/>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
-                    <span>Session Key: </span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
+                    <span><xsl:value-of select="$TOKEN[@name='SESSION_KEY']"/> </span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
                 </xsl:if>
             </p>
@@ -964,12 +965,12 @@
       
 	      <!-- Copyright -->
 	      <div id="portalCopyright">
-	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal</a> is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0</a> as approved by the Open Source Initiative (OSI), an <a href="http://www.opensource.org/docs/osd" title="OSI-certified" target="_blank">OSI-certified</a> ("open") and <a href="http://www.gnu.org/licenses/license-list.html" title="Gnu/FSF-recognized" target="_blank">Gnu/FSF-recognized</a> ("free") license.</p>
+	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal</a> <xsl:value-of select="$TOKEN[@name='UPORTAL_LICENSED']"/> <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0</a> <xsl:value-of select="$TOKEN[@name='LICENSE_APPROVEMENT']"/> <a href="http://www.opensource.org/docs/osd" title="{$TOKEN[@name='OSI']}" target="_blank"><xsl:value-of select="$TOKEN[@name='OSI']"/></a> <xsl:value-of select="$TOKEN[@name='OPEN_LICENSE']"/> <a href="http://www.gnu.org/licenses/license-list.html" title="{$TOKEN[@name='GNU']}" target="_blank"><xsl:value-of select="$TOKEN[@name='GNU']"/></a> <xsl:value-of select="$TOKEN[@name='FREE_LICENSE']"/></p>
 	      </div>
       
 	      <!-- Icon Set Attribution -->
 	      <div id="silkIconsAttribution">
-	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icon set 1.3" target="_blank">Silk icon set 1.3</a> courtesy of Mark James.</p>
+	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="{$TOKEN[@name='ICON_SET']}" target="_blank"><xsl:value-of select="$TOKEN[@name='ICON_SET']"/></a> <xsl:value-of select="$TOKEN[@name='ICON_SET_AUTHOR']"/></p>
 	        <!-- Silk icon set 1.3 by Mark James [ http://www.famfamfam.com/lab/icons/silk/ ], which is licensed under a Creative Commons Attribution 2.5 License. [ http://creativecommons.org/licenses/by/2.5/ ].  This icon set is free for use under the CCA 2.5 license, so long as there is a link back to the author's site.  If the Silk icons are used, this reference must be present in the markup, though not necessarily visible in the rendered page.  If you don't want the statement to visibly render in the page, use CSS to make it invisible. -->
 	      </div>
     	</div>
