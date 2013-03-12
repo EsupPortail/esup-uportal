@@ -20,9 +20,9 @@
 
 -->
 <group script="classpath://org/jasig/portal/io/import-group_membership_v3-2.crn">
-  <name>Academics</name>
+  <name>Enseignement</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>Academic Portlets</description>
+  <description>Portlets d'enseignement</description>
   <children/>
 </group>

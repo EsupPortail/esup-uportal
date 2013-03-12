@@ -23,23 +23,23 @@
   <name>All categories</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>All channel categories</description>
+  <description>Toutes_les_categories</description>
   <children>
-    <group>Academics</group>
+    <group>Enseignement</group>
     <group>Administration</group>
-    <group>Advisor</group>
-    <group>Demonstration</group>
-    <group>Development</group>
-    <group>Entertainment</group>
+    <group>Conseil</group>
+    <group>Démonstration</group>
+    <group>Développement</group>
+    <group>Divertissement</group>
     <group>Finances</group>
     <group>Information</group>
-    <group>Instructors</group>
-    <group>Library</group>
-    <group>News</group>
-    <group>Research</group>
+    <group>Enseignants</group>
+    <group>Bibliothèque</group>
+    <group>Actualités</group>
+    <group>Recherche</group>
     <group>Services</group>
-    <group>Testing</group>
-    <group>Work</group>
+    <group>Tests</group>
+    <group>Travail</group>
     <group>uPortal</group>
   </children>
 </group>
