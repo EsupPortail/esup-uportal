@@ -25,7 +25,7 @@
       <channel fname="fragment-admin-exit" unremovable="false" hidden="false" immutable="false" ID="n3"/>
     </folder>
     <folder ID="s4" hidden="false" immutable="false" name="Footer folder" type="footer" unremovable="false"/>
-    <folder ID="s5" hidden="false" immutable="false" name="Entertainment" type="regular" unremovable="false">
+    <folder ID="s5" hidden="false" immutable="false" name="Divertissement" type="regular" unremovable="false">
       <structure-attribute>
           <name>externalId</name>
           <value>entertainment</value>
