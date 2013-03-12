@@ -234,7 +234,6 @@
 
     <bean id="uPortalLdapAttributeSource" class="org.jasig.services.persondir.support.ldap.LdapPersonAttributeDao">
         <property name="contextSource" ref="defaultLdapContext" />
-        <property name="baseDN" value="${ldap.baseDn}" />
         <property name="queryAttributeMapping">
             <map>
                 <entry key="username" value="${ldap.uidAttr}"/>
