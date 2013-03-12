@@ -574,7 +574,7 @@
         <uportal-parent-macro>
             <!-- Clean out uPortal from Tomcat -->
             <artifact:pom file="${uportal-war.dir}/pom.xml" id="uportal-war.pom" settingsFile="${maven.settings}" inheritAllProperties="false" />
-            <property name="destDir" value="${server.base}/webapps/${uportal-war.pom.build.finalName}" />
+            <property name="destDir" value="${server.webapps}/${uportal-war.pom.build.finalName}" />
             <echo>Deleting '${destDir}'</echo>
             <delete dir="${destDir}" />
         </uportal-parent-macro>
