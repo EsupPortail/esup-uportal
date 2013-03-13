@@ -15,3 +15,11 @@
     width: 240px;
     z-index: 100000;
 }
+
+/* Adaptation pour la portlet email-preview suite à la francisation de la portlet*/ 
+.plt-email-row label:lang(fr) {
+   float: left;
+   display: table-cell; 
+   white-space: nowrap; 
+   width: 18em;
+}

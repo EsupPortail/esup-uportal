@@ -30,8 +30,8 @@
 
   <css>portal.css</css>
 
-	<!-- Ajout de la CSS permettant l'adaptation graphique sur les portlets en vue mobile avec la francisation --> 
-	<css>portlet_fr.css</css>
+	<!-- Ajout du CSS ESUP pour la vue mobile --> 
+	<css>esup.css</css>
 
   <!-- Default jqueryui css -->
   <!--css included="plain">/ResourceServingWebapp/rs/jqueryui/1.8/theme/smoothness/jquery-ui-1.8-smoothness.css</css>

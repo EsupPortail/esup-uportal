@@ -1,7 +1,0 @@
-/* Adaptation pour portlet email-preview */ 
-.plt-email-row label:lang(fr) {
-   float: left;
-   display: table-cell; 
-   white-space: nowrap; 
-   width: 18em;
-}
