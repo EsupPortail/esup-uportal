@@ -7,3 +7,19 @@
     padding-right: 25px;
     padding-top: 2px;
 }
+
+/* Modification de la largeur des items dans le menu déroulant lors de la francisation */
+#portalNavigation .portal-flyout-container:lang(fr) {
+    display: none;
+    position: absolute;
+    width: 240px;
+    z-index: 100000;
+}
+
+/* Adaptation pour la portlet email-preview suite à la francisation de la portlet*/ 
+.plt-email-row label:lang(fr) {
+   float: left;
+   display: table-cell; 
+   white-space: nowrap; 
+   width: 18em;
+}
