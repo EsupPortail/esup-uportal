@@ -172,7 +172,7 @@
    | GREEN
    | Locatlization Settings can be used to change the localization of the theme.
   -->
-	<xsl:param name="USER_LANG">en</xsl:param> <!-- Sets the default user language. -->
+	<xsl:param name="USER_LANG">fr</xsl:param> <!-- Sets the default user language. -->
   
   
   <!-- ****** PORTAL SETTINGS ****** -->
@@ -951,11 +951,11 @@
 	      <!-- uPortal Product Version -->
 	      <div id="portalProductAndVersion">
 	        <p>
-                <a href="http://www.jasig.org/uportal" title="Powered by uPortal ${UP_VERSION}" target="_blank">Powered by uPortal <xsl:value-of select="$UP_VERSION"/></a>, an open-source project by <a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
+                <a href="http://www.jasig.org/uportal" title="{upMsg:getMessage('footer.uportal.powered.by', $USER_LANG)} {$UP_VERSION}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.uportal.powered.by', $USER_LANG)"/><xsl:value-of select="$UP_VERSION"/></a><xsl:value-of select="upMsg:getMessage('footer.open.source', $USER_LANG)"/><a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
                 <xsl:if test="$AUTHENTICATED='true'">
                     <br/>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
-                    <span>Session Key: </span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
+                    <span><xsl:value-of select="upMsg:getMessage('footer.session.key', $USER_LANG)"/></span><span><xsl:value-of select="$STATS_SESSION_ID"/></span>
                     <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
                 </xsl:if>
             </p>
@@ -964,12 +964,12 @@
       
 	      <!-- Copyright -->
 	      <div id="portalCopyright">
-	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal</a> is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0</a> as approved by the Open Source Initiative (OSI), an <a href="http://www.opensource.org/docs/osd" title="OSI-certified" target="_blank">OSI-certified</a> ("open") and <a href="http://www.gnu.org/licenses/license-list.html" title="Gnu/FSF-recognized" target="_blank">Gnu/FSF-recognized</a> ("free") license.</p>
+	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal </a><xsl:value-of select="upMsg:getMessage('footer.uportal.licensed', $USER_LANG)"/><a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0 </a> <xsl:value-of select="upMsg:getMessage('footer.license.approvment', $USER_LANG)"/><a href="http://www.opensource.org/docs/osd" title="{upMsg:getMessage('footer.osi', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.osi', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.open.license', $USER_LANG)"/><a href="http://www.gnu.org/licenses/license-list.html" title="{upMsg:getMessage('footer.gnu', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.gnu', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.free.license', $USER_LANG)"/></p>
 	      </div>
       
 	      <!-- Icon Set Attribution -->
 	      <div id="silkIconsAttribution">
-	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="Silk icon set 1.3" target="_blank">Silk icon set 1.3</a> courtesy of Mark James.</p>
+	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="{upMsg:getMessage('footer.icon.set', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.icon.set', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.icon.set.author', $USER_LANG)"/></p>
 	        <!-- Silk icon set 1.3 by Mark James [ http://www.famfamfam.com/lab/icons/silk/ ], which is licensed under a Creative Commons Attribution 2.5 License. [ http://creativecommons.org/licenses/by/2.5/ ].  This icon set is free for use under the CCA 2.5 license, so long as there is a link back to the author's site.  If the Silk icons are used, this reference must be present in the markup, though not necessarily visible in the rendered page.  If you don't want the statement to visibly render in the page, use CSS to make it invisible. -->
 	      </div>
     	</div>
