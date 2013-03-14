@@ -23,7 +23,7 @@
   <name>Guests</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>Unauthenticated users</description>
+  <description>Anonymes</description>
   <children>
     <literal>guest</literal>
     <literal>guest-lo</literal>

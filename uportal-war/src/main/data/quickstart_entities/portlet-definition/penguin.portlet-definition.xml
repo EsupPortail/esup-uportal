@@ -23,7 +23,7 @@
     <title>Penguin</title>
     <name>Penguin</name>
     <fname>penguin</fname>
-    <desc>Poke the Penguin Google Gadget</desc>
+    <desc>Google Gadget "Poke the Penguin"</desc>
     <type>Portlet</type>
     <timeout>60000</timeout>
     <portlet-descriptor>

@@ -23,14 +23,14 @@
     <title>NY Times - Education</title>
     <name>NY Times Education</name>
     <fname>ny-times-education</fname>
-    <desc>Recent education news from the New York Times.</desc>
+    <desc>Flux d'actualités sur l'éducation du New York Times.</desc>
     <type>RSS</type>
     <timeout>10000</timeout>
     <portlet-descriptor>
         <ns2:webAppName>/NewsReaderPortlet</ns2:webAppName>
         <ns2:portletName>single-feed-news</ns2:portletName>
     </portlet-descriptor>
-    <category>News</category>
+    <category>Actualités</category>
     <group>Everyone</group>
     <parameter>
         <name>iconUrl</name>

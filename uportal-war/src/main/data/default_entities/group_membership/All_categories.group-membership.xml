@@ -23,10 +23,10 @@
   <name>All categories</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>All channel categories</description>
+  <description>Toutes les catégories de portlets</description>
   <children>
     <group>Administration</group>
-    <group>Development</group>
+    <group>Développement</group>
     <group>Information</group>
     <group>uPortal</group>
   </children>

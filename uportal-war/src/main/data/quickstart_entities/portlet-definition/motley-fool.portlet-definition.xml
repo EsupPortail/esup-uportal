@@ -23,14 +23,14 @@
     <title>Motley Fool</title>
     <name>The Motley Fool</name>
     <fname>motley-fool</fname>
-    <desc>Motley Fool channel</desc>
+    <desc>Flux d'actualités de Motley Fool</desc>
     <type>RSS</type>
     <timeout>10000</timeout>
     <portlet-descriptor>
         <ns2:webAppName>/NewsReaderPortlet</ns2:webAppName>
         <ns2:portletName>single-feed-news</ns2:portletName>
     </portlet-descriptor>
-    <category>Entertainment</category>
+    <category>Divertissement</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>

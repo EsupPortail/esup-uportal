@@ -23,14 +23,14 @@
     <title>Daily Business Cartoon</title>
     <name>Daily Business Cartoon</name>
     <fname>daily-business-cartoon</fname>
-    <desc>Daily Business Cartoon by Ted Goff, www.tedgoff.com</desc>
+    <desc>Daily Business Cartoon par Ted Goff, www.tedgoff.com</desc>
     <type>Image</type>
     <timeout>30000</timeout>
     <portlet-descriptor>
         <ns2:isFramework>true</ns2:isFramework>
         <ns2:portletName>Image</ns2:portletName>
     </portlet-descriptor>
-    <category>Entertainment</category>
+    <category>Divertissement</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>

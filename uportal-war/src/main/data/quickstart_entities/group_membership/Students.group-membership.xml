@@ -23,7 +23,7 @@
   <name>Students</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>All students</description>
+  <description>Tous les étudiants</description>
   <children>
     <literal>student</literal>
     <literal>student-lo</literal>

@@ -23,6 +23,6 @@
   <name>Information</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>Informational Portlets</description>
+  <description>Portlets d'information</description>
   <children/>
 </group>

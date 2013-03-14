@@ -23,7 +23,7 @@
   <name>Portal System</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>Portal System Accounts</description>
+  <description>Comptes systèmes du portail</description>
   <children>
     <group>Fragment Owners</group>
     <group>Portal Administrators</group>

@@ -23,7 +23,7 @@
   <name>Faculty</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>All Faculty</description>
+  <description>Tous les enseignants</description>
   <children>
     <literal>faculty</literal>
     <literal>faculty-lo</literal>

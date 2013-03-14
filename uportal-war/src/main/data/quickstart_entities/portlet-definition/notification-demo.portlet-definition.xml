@@ -20,10 +20,10 @@
 
 -->
 <portlet-definition xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/event-aggregation" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/user" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/permission-owner" xmlns:ns7="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd">
-    <title>Notification Portlet Demo</title>
-    <name>Notification Portlet Demo</name>
+    <title>Démo de la Portlet d'annonces</title>
+    <name>Démo de la Portlet d'annonces</name>
     <fname>notification-demo</fname>
-    <desc>Demonstration of the Jasig Notification Portlet using mock data</desc>
+    <desc>Démonstration de la Portlet d'annonces du Jasig</desc>
     <type>Portlet</type>
     <timeout>20000</timeout>
     <portlet-descriptor>

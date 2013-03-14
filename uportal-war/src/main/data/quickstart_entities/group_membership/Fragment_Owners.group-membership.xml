@@ -23,7 +23,7 @@
   <name>Fragment Owners</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>These are fragment layout owner accounts</description>
+  <description>Propriétaires de fragments</description>
   <children>
     <literal>academics-lo</literal>
     <literal>admin-lo</literal>

@@ -23,7 +23,7 @@
   <name>Staff</name>
   <entity-type>org.jasig.portal.security.IPerson</entity-type>
   <creator>system</creator>
-  <description>All staff members</description>
+  <description>Tout le personnel</description>
   <children>
     <literal>staff</literal>
     <literal>staff-lo</literal>
