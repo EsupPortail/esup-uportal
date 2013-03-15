@@ -69,49 +69,50 @@
  	        // 
 	       	//    The children are processed in order to
 	        //    	- extract the idpath of the groups from their dn
-                //    	- remove the entries that are not groups (eg users).
+            //    	- remove the entries that are not groups (eg users).
 
-	       def newChildren=[];				     
-	       if (req.hasAttribute('childGroupKeyRegex')) {
-     	       	  def pattern = req.hasAttribute('pattern') ? req.getAttribute('pattern') : java.util.regex.Pattern.compile(ScriptAttributes.REQUEST.getAttribute("childGroupKeyRegex"));
-		  ScriptAttributes.RESPONSE.setAttribute('pattern', pattern);
-		  for (String child : record.getKeysOfChildren()){
-		     def matcher = pattern.matcher(child);
-		     if (matcher.matches()) {		
-			newChildren.add(matcher.group(1));
-		     }
-	      	 }
-		 record = new LdapRecord(record.getGroup(), newChildren); 
-	      } 
-	      GROUPS.add(record);
+	           def newChildren=[];				     
+	           if (req.hasAttribute('childGroupKeyRegex') &amp;&amp; req.hasAttribute('keyIndexMatchingGroup')) {
+	                  def keyIndexMatchingGroup = req.getAttribute('keyIndexMatchingGroup');
+         	       	  def pattern = req.hasAttribute('pattern') ? req.getAttribute('pattern') : java.util.regex.Pattern.compile(ScriptAttributes.REQUEST.getAttribute("childGroupKeyRegex"));
+		              ScriptAttributes.RESPONSE.setAttribute('pattern', pattern);
+		              for (String child : record.getKeysOfChildren()){
+		                 def matcher = pattern.matcher(child);
+		                 if (matcher.matches()) {		
+        			        newChildren.add(matcher.group(keyIndexMatchingGroup));
+		                 }
+                  	 }
+		             record = new LdapRecord(record.getGroup(), newChildren); 
+              } 
+	          GROUPS.add(record);
 	      
-	      // ESUP
-	      //   Parses the group names in order to handle the Grouper folders.
+	          // ESUP
+	          //   Parses the group names in order to handle the Grouper folders.
 	      
               String current = record.getGroup().getName();
               int sepPos;
               boolean stop = false;
-	      boolean isGroup = true;
+	          boolean isGroup = true;
               while ((sepPos=current.lastIndexOf(':')) > 0 &amp;&amp; ! stop) {
-	         String previous = current;
-                 current = current.substring(0, sepPos);
+	            String previous = current;
+                current = current.substring(0, sepPos);
 
-		 if (FOLDERS.containsKey(current)) {
-		    stop = true;
-		 } else {
-		    FOLDERS.put(current,[]);
-		 }
+		         if (FOLDERS.containsKey(current)) {
+		            stop = true;
+		         } else {
+		            FOLDERS.put(current,[]);
+		         }
 
-		 groups = FOLDERS.get(current);
-		 if (isGroup) {
-		   groups.add(record.getGroup().getLocalKey());
-		 } else {
-	      	   groups.add(previous);
-		 }
-		 isGroup = false;
-             }
+		         groups = FOLDERS.get(current);
+		         if (isGroup) {
+		           groups.add(record.getGroup().getLocalKey());
+		         } else {
+	              groups.add(previous);
+		         }
+		         isGroup = false;
+              }
            }
-          // End of ESUP modifications.
+           // End of ESUP modifications.
 
             
         </script>
