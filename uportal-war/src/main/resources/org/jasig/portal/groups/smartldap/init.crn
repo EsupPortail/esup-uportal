@@ -72,7 +72,8 @@
                 //    	- remove the entries that are not groups (eg users).
 
 	       def newChildren=[];				     
-	       if (req.hasAttribute('childGroupKeyRegex')) {
+	       if (req.hasAttribute('childGroupKeyRegex') &amp;&amp; req.hasAttribute('keyIndexMatchingGroup')) {  
+                  def keyIndexMatchingGroup = req.getAttribute('keyIndexMatchingGroup');
      	       	  def pattern = req.hasAttribute('pattern') ? req.getAttribute('pattern') : java.util.regex.Pattern.compile(ScriptAttributes.REQUEST.getAttribute("childGroupKeyRegex"));
 		  ScriptAttributes.RESPONSE.setAttribute('pattern', pattern);
 		  for (String child : record.getKeysOfChildren()){

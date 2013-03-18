@@ -53,14 +53,19 @@
     </bean>
 
     <!--
-	ESUP Parameter. 
-	This parameter is used to extract the id path of the groups 
-	form their dn. The id path is expected to be catched from the first group 
-	of the regex.
+     | ESUP Parameter.
+     | This parameter is used to extract the id path of the groups
+     | from their dn.
+     | The id path is caught from the nth group of the regex where n is the value
+     | of keyIndexMatchingGroup.
+     | (http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#group%28int%29)
     -->
     <bean id="childGroupKeyRegex" class="java.lang.String">
         <constructor-arg><value>cn=(.*),ou=groups,dc=univ,dc=fr</value></constructor-arg>
     </bean>
+    <bean id="keyIndexMatchingGroup" class="java.lang.Integer">
+        <constructor-arg><value>0</value></constructor-arg>
+    </bean> 
 
     <!--
      | NOTE:  The remaining examples in this file are configured correctly for 
