@@ -30,7 +30,7 @@
         <ns2:webAppName>/SimpleContentPortlet</ns2:webAppName>
         <ns2:portletName>cms</ns2:portletName>
     </portlet-descriptor>
-    <category>News</category>
+    <category>Actualités</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>

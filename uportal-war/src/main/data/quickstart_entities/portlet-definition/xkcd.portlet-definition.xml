@@ -30,7 +30,7 @@
         <ns2:webAppName>/NewsReaderPortlet</ns2:webAppName>
         <ns2:portletName>single-feed-news</ns2:portletName>
     </portlet-descriptor>
-    <category>Entertainment</category>
+    <category>Divertissement</category>
     <group>Everyone</group>
     <parameter>
         <name>mobileIconUrl</name>

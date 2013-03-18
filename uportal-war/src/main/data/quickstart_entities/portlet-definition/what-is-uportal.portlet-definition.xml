@@ -20,17 +20,17 @@
 
 -->
 <portlet-definition xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/permission-owner" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/user" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd">
-    <title>Welcome to uPortal</title>
-    <name>Welcome to uPortal</name>
+    <title>Bienvenue sur uPortal</title>
+    <name>Bienvenue sur uPortal</name>
     <fname>what-is-uportal</fname>
-    <desc>Description of uPortal.</desc>
+    <desc>Description d'uPortal.</desc>
     <type>CMS</type>
     <timeout>10000</timeout>
     <portlet-descriptor>
         <ns2:webAppName>/SimpleContentPortlet</ns2:webAppName>
         <ns2:portletName>cms</ns2:portletName>
     </portlet-descriptor>
-    <category>Demonstration</category>
+    <category>Démonstration</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>
@@ -45,23 +45,23 @@
         <readOnly>false</readOnly>
         <value>
             
-                &lt;h2&gt;What is uPortal?&lt;/h2&gt;
+                &lt;h2&gt;Qu'est-ce que uPortal?&lt;/h2&gt;
                 
                 &lt;p&gt;
                     &lt;a href=&quot;http://www.uportal.org&quot; target=&quot;_blank&quot;&gt;uPortal&lt;/a&gt; 
-                    is a free and open source Java-implemented web portal 
-                    platform developed and maintained by participants drawn 
-                    from across higher education under the coordination of 
+                    est un portail web libre et open source implémenté en Java 
+                    et maintenu par l'ensemble de la communauté de l'enseignement supérieur 
+					sous la coordination de 
                     &lt;a href=&quot;http://www.ja-sig.org&quot; target=&quot;_blank&quot;&gt;Jasig&lt;/a&gt;. 
-                    uPortal can aggregate content, present self-service 
-                    applications, personalize presentation and content on the 
-                    basis of groups and user attributes, and allow advanced 
-                    end-user-participatory customization of the portal experience. 
-                    uPortal supports the JSR-168 Java portlet specification for 
-                    including your custom applications within the portal.
+                    uPortal permet notamment d'agréger du contenu, présenter des applications en libre service, 
+                    personnaliser la présentation et le contenu 
+                    en fonction d'attributs de groupes et utilisateurs, et permet également une 
+                    personnalisation avancée pour chaque participant de l'expérience uPortal. 
+                    uPortal supporte la norme portlet Java JSR-168 
+                    pour l'ajout de vos applications personnalisées au sein du portail.
                 &lt;/p&gt;
                 
-                &lt;p&gt;Welcome to uPortal.&lt;/p&gt; 
+                &lt;p&gt;Bienvenue sur uPortal.&lt;/p&gt; 
             
         </value>
     </portlet-preference>

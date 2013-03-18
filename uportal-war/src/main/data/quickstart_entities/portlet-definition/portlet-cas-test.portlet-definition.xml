@@ -30,7 +30,7 @@
         <ns2:webAppName>/cas-proxy-test-portlet</ns2:webAppName>
         <ns2:portletName>ProxyCasTest</ns2:portletName>
     </portlet-descriptor>
-    <category>Development</category>
+    <category>Développement</category>
     <group>Everyone</group>
     <parameter>
         <name>iconUrl</name>

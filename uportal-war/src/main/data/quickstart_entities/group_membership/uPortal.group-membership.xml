@@ -23,6 +23,6 @@
   <name>uPortal</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>uPortal Integrated Portlets</description>
+  <description>Portlets intégrées dans uPortal</description>
   <children/>
 </group>

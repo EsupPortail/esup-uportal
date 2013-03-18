@@ -20,7 +20,7 @@
 
 -->
 <fragment-definition xmlns:dlm="http://org.jasig.portal.layout.dlm.config" script="classpath://org/jasig/portal/io/import-fragment-definition_v3-1.crn">
-  <dlm:fragment name="News" ownerID="news-lo" precedence="60" description="Current world news resources">
+  <dlm:fragment name="News" ownerID="news-lo" precedence="60" description="Actualités et informations dans le monde">
     <dlm:audience evaluatorFactory="org.jasig.portal.layout.dlm.providers.SubscribedTabEvaluatorFactory"/>
   </dlm:fragment>
 </fragment-definition>
