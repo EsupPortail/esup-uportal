@@ -23,6 +23,6 @@
   <name>Services</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>Services Portlets</description>
+  <description>Portlets de services</description>
   <children/>
 </group>

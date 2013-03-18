@@ -30,7 +30,7 @@
         <ns2:webAppName>/jasig-widget-portlets</ns2:webAppName>
         <ns2:portletName>tips</ns2:portletName>
     </portlet-descriptor>
-    <category>Demonstration</category>
+    <category>Démonstration</category>
     <group>Everyone</group>
     <parameter>
         <name>hasHelp</name>

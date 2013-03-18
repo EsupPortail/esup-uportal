@@ -30,7 +30,7 @@
         <ns2:webAppName>/pluto-testsuite</ns2:webAppName>
         <ns2:portletName>TestPortlet1</ns2:portletName>
     </portlet-descriptor>
-    <category>Testing</category>
+    <category>Tests</category>
     <group>Everyone</group>
     <parameter>
         <name>iconUrl</name>

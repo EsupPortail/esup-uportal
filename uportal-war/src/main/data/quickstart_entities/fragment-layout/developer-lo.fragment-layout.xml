@@ -25,7 +25,7 @@
             <channel fname="fragment-admin-exit" unremovable="false" hidden="false" immutable="false" ID="n3"/>
         </folder>
         <folder ID="s4" hidden="false" immutable="false" name="Footer folder" type="footer" unremovable="false"/>
-        <folder ID="s5" hidden="false" immutable="false" name="Development" type="regular" unremovable="false">
+        <folder ID="s5" hidden="false" immutable="false" name="Développement" type="regular" unremovable="false">
             <structure-attribute>
                 <name>externalId</name>
                 <value>development</value>
@@ -44,7 +44,7 @@
                 <channel fname="snooper" unremovable="false" hidden="false" immutable="false" ID="n8"/>
             </folder>
         </folder>
-        <folder ID="s9" hidden="false" immutable="false" name="Testing" type="regular" unremovable="false">
+        <folder ID="s9" hidden="false" immutable="false" name="Tests" type="regular" unremovable="false">
             <structure-attribute>
                 <name>externalId</name>
                 <value>testing</value>

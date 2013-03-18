@@ -30,7 +30,7 @@
         <ns2:isFramework>true</ns2:isFramework>
         <ns2:portletName>IFrame</ns2:portletName>
     </portlet-descriptor>
-    <category>News</category>
+    <category>Actualités</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>

@@ -30,7 +30,7 @@
         <ns2:webAppName>/jasig-widget-portlets</ns2:webAppName>
         <ns2:portletName>youtube</ns2:portletName>
     </portlet-descriptor>
-    <category>Academics</category>
+    <category>Enseignement</category>
     <group>Everyone</group>
     <parameter>
         <name>mobileIconUrl</name>

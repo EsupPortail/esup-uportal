@@ -30,7 +30,7 @@
         <ns2:isFramework>true</ns2:isFramework>
         <ns2:portletName>Image</ns2:portletName>
     </portlet-descriptor>
-    <category>Entertainment</category>
+    <category>Divertissement</category>
     <group>Everyone</group>
     <parameter>
         <name>disableDynamicTitle</name>

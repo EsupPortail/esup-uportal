@@ -23,6 +23,6 @@
   <name>Finances</name>
   <entity-type>org.jasig.portal.portlet.om.IPortletDefinition</entity-type>
   <creator>system</creator>
-  <description>Financial Portlets</description>
+  <description>Portlets financières</description>
   <children/>
 </group>
