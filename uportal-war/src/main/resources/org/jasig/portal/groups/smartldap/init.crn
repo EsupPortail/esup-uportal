@@ -25,7 +25,8 @@
         base-dn="${baseDn}" 
         filter="${filter}" 
         scope="${groovy(javax.naming.directory.SearchControls.SUBTREE_SCOPE)}" 
-        attributes-mapper="${attributesMapper}" 
+        mapper-type="context"
+        context-mapper="${contextMapper}"
         attribute-name="record"
 	>
 

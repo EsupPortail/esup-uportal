@@ -103,12 +103,13 @@
     </bean>
 
     <!--
-     | This bean identifies the org.springframework.ldap.core.AttributesMapper
+     | This bean identifies the org.springframework.ldap.core.ContextMapper
      | implementation used in reading the groups records from LDAP.
      +-->
-    <bean id="attributesMapper" class="org.jasig.portal.groups.smartldap.SimpleAttributesMapper">
+    <bean id="contextMapper" class="org.jasig.portal.groups.smartldap.SimpleContextMapper">
         <!--
          | Name of the group attribute that tells you its key.
+         | If ommited, will use the dn.  
          +-->
         <property name="keyAttributeName">
             <value>cn</value>
