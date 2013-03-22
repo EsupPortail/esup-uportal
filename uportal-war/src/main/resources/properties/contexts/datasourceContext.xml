@@ -53,7 +53,10 @@
         <property name="testOnBorrow" value="true" />
         <property name="delayedValidationQueryResolver" ref="delayedValidationQueryResolver" />
     </bean>
-
+    
+    <!--
+     | JDBC database access
+     +-->
     <bean id="PortalDb" parent="basePooledDataSource">
         <qualifier value="PortalDb"/>
         <property name="driverClassName" value="${hibernate.connection.driver_class}" />
@@ -61,6 +64,40 @@
         <property name="username" value="${hibernate.connection.username}" />
         <property name="password" value="${hibernate.connection.password}" />
     </bean>
+    
+    <!-- 
+     |	JNDI database access + JDBC if JNDI fails, comment bean id portalDb above and uncomment the 3 beans below
+     +-->
+    <!--
+    <bean id="PortalDb" class="org.jasig.portal.spring.beans.factory.MediatingFactoryBean">
+        <property name="type" value="javax.sql.DataSource" />
+        <property name="delegateBeanNames">
+            <list>
+                <value>PortalDb.JNDI</value>
+                <value>PortalDb.direct</value>
+            </list>
+        </property>
+    </bean>
+ 
+    <bean id="PortalDb.JNDI" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/${hibernate.connection.jndiname}" />
+    </bean>
+  
+    <bean id="PortalDb.direct" class="org.apache.commons.dbcp.BasicDataSource" lazy-init="true">
+        <property name="driverClassName" value="${hibernate.connection.driver_class}" />
+        <property name="url" value="${hibernate.connection.url}" />
+        <property name="username" value="${hibernate.connection.username}" />
+        <property name="password" value="${hibernate.connection.password}" />
+ 
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="10" />
+        <property name="maxWait" value="1000" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="300" />
+        <property name="logAbandoned" value="true" />
+    </bean>
+    -->
+
     <bean id="PortalDB.metadata" class="org.jasig.portal.rdbm.DatabaseMetaDataImpl">
         <constructor-arg index="0" ref="PortalDb" />
         <constructor-arg index="1" ref="transactionManager"/>
