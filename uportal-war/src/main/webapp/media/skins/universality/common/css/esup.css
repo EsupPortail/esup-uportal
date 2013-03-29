@@ -1,5 +1,5 @@
-/* largeur lien personnaliser */
-.up-gallery .handle a span { 
+/* Adapts the customization ("Personnalisation") link */
+.up-gallery .handle a span:lang(fr) { 
     font-size: 0.9em;
     margin-right: 2px;
     padding-bottom: 2px;
@@ -8,7 +8,12 @@
     padding-top: 2px;
 }
 
-/* Modification de la largeur des items dans le menu déroulant lors de la francisation */
+/* In the gallery, moves the "Packages" label a little to the right so it does not run over the "Services" link*/
+.up-gallery .packages-column h3:lang(fr) {
+    left: 74px;
+}
+
+/* Changes the width of the items in the flyout menu */
 #portalNavigation .portal-flyout-container:lang(fr) {
     display: none;
     position: absolute;
@@ -16,7 +21,7 @@
     z-index: 100000;
 }
 
-/* Adaptation pour la portlet email-preview suite à la francisation de la portlet*/ 
+/* Makes some graphical adjustments for the "French version" of the email-preview portlet */
 .plt-email-row label:lang(fr) {
    float: left;
    display: table-cell; 
