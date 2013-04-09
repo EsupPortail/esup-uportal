@@ -695,6 +695,7 @@
                     <include>properties/contexts/userContext.xml</include>
                     <include>properties/contexts/ldapContext.xml</include>
                     <include>properties/contexts/personDirectoryContext.xml</include>
+                    <include>properties/groups/SmartLdapGroupStoreConfig.xml</include>
                     <include>properties/i18n/*.properties</include>
                 </includes>
             </resource>
