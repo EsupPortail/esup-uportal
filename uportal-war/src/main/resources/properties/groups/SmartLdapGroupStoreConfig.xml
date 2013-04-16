@@ -28,7 +28,12 @@
      | This bean is the ContextSource instance that will be used to connect to LDAP.
      +-->
     <bean id="ldapContext" class="org.springframework.ldap.core.support.LdapContextSource">
-	<property name="url" value="${environment.build.smartldapgroupstore.ldap.url}"/>
+	<!--<property name="url" value="${environment.build.smartldapgroupstore.ldap.url}" />-->
+	<property name="urls">
+	    <list>
+		<value>${environment.build.smartldapgroupstore.ldap.url}</value>
+	    </list>
+	</property>
 	<property name="userDn" value="${environment.build.smartldapgroupstore.ldap.userName}"/>
 	<property name="password" value="${environment.build.smartldapgroupstore.ldap.password}"/>
     </bean>
