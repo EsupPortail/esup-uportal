@@ -151,7 +151,8 @@
     <div class="portal-nav portlet-content">
         <ul data-role="listview" class="up-portal-nav">
             <xsl:for-each select="//navigation/tab">
-            <li data-role="list-divider"><xsl:value-of select="upElemTitle:getTitle(@ID, $USER_LANG, @name)"/></li>
+            <xsl:if test="channel">
+                <li data-role="list-divider"><xsl:value-of select="upElemTitle:getTitle(@ID, $USER_LANG, @name)"/></li>
                 <xsl:for-each select="channel">
                     <li>
                         <xsl:variable name="defaultPortletUrl">
@@ -181,7 +182,8 @@
                             <span class="{$newItemCountClasses}">{up-portlet-new-item-count(<xsl:value-of select="@ID" />)}</span>
                         </a>
                     </li>
-                </xsl:for-each>
+                    </xsl:for-each>
+                </xsl:if>
             </xsl:for-each>
         </ul>
     </div>
