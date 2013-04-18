@@ -232,6 +232,12 @@
                   <xsl:value-of select="parameter[@name='removeFromLayout']/@value"/>
                 </xsl:attribute>
               </xsl:when>
+              <xsl:when test="parameter[@name='hideFromDesktop']">
+                <xsl:attribute name="hideFromDesktop">
+                  <xsl:value-of select="parameter[@name='hideFromDesktop']/@value"/>
+                </xsl:attribute>
+              </xsl:when>
+            </xsl:choose>
             </xsl:choose>
           </tabChannel>
         </xsl:for-each>
