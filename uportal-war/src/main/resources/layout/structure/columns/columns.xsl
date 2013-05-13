@@ -238,7 +238,6 @@
                 </xsl:attribute>
               </xsl:when>
             </xsl:choose>
-            </xsl:choose>
           </tabChannel>
         </xsl:for-each>
       </tab>
