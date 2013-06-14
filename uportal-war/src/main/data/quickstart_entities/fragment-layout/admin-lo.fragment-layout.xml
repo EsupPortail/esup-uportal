@@ -44,6 +44,7 @@
         </structure-attribute>
         <channel fname="please-register" unremovable="false" hidden="false" immutable="false" ID="n11"/>
         <channel fname="emergency-alert-admin" unremovable="false" hidden="false" immutable="false" ID="n12"/>
+        <channel fname="monitor" unremovable="false" hidden="false" immutable="false" ID="n13"/>
       </folder>
     </folder>
   </folder>

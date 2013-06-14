@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<server name="server1" url="${environment.build.uportal.protocol}://${environment.build.real.uportal.server}${environment.build.real.uportal.context}/EsupMonitor" />
+</config>

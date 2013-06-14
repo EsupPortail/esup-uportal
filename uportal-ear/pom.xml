@@ -120,7 +120,14 @@
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
-        
+       
+	<dependency>
+            <groupId>org.jasig.portal.portlets-overlay</groupId>
+            <artifactId>portlet-monitor</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+ 
         <dependency>
             <groupId>javax.ccpp</groupId>
             <artifactId>ccpp</artifactId>
