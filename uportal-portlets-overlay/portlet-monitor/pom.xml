@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.jasig.portal.portlets-overlay</groupId>
+        <artifactId>uportal-portlets-overlay</artifactId>
+        <version>4.0.12-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>portlet-monitor</artifactId>
+    <packaging>war</packaging>
+
+    <name>esup-monitor</name>
+    <description>Overlay on esup-portlet-monitor.</description>
+
+    <dependencies>
+        <!-- ===== Compile Time Dependencies ============================== -->
+        <dependency>
+        	<groupId>org.esup.portail</groupId>
+		    <artifactId>portlet-monitor</artifactId>
+		    <version>${esup-portlet-monitor.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <filters>
+            <filter>../../${filters.file}</filter>
+        </filters>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <filters>
+                        <filter>${basedir}/../../${filters.file}</filter>
+                    </filters>
+                    <dependentWarExcludes>
+                        WEB-INF/lib/hsqldb-*.jar
+                    </dependentWarExcludes>
+                    <webResources>
+                        <resource>
+                            <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                            <targetPath>WEB-INF</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+           <plugin>
+                <groupId>org.apache.portals.pluto</groupId>
+                <artifactId>maven-pluto-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

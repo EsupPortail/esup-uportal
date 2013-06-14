@@ -29,6 +29,7 @@
         <module>SimpleContentPortlet</module>
         <module>WeatherPortlet</module>
         <module>WebProxyPortlet</module>
+        <module>portlet-monitor</module>
     </modules>
 
     <build>
