@@ -79,7 +79,11 @@ public class SimpleContextMapper implements ContextMapper{
 			g.setName(groupName);
 			g.setDescription(GROUP_DESCRIPTION);
 			
-			List<String> membership = new LinkedList<String>(Arrays.asList(context.getStringAttributes(membershipAttributeName)));
+			String[] m = context.getStringAttributes(membershipAttributeName);
+            		List<String> membership = new LinkedList<String>();
+            		if (m != null && m.length > 0) {
+                	membership.addAll(Arrays.asList(m));
+            		}
 			
 			rslt = new LdapRecord(g, membership);
 
