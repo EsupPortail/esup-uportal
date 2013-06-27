@@ -15,36 +15,36 @@ import org.jasig.portal.security.IPerson;
 
 public class SimpleContextMapper implements ContextMapper{
 
-  private static final String GROUP_DESCRIPTION = 
+  private static final String GROUP_DESCRIPTION =
 			"This group was pulled from the directory server.";
 
 	/**
-	 * Name of the LDAP attribute on a group that tells you 
+	 * Name of the LDAP attribute on a group that tells you
 	 * its key (normally 'dn').
 	 */
-	private String keyAttributeName = null; 
+	private String keyAttributeName = null;
 
 	/**
-	 * Name of the LDAP attribute on a group that tells you 
+	 * Name of the LDAP attribute on a group that tells you
 	 * the name of the group.
 	 */
-	private String groupNameAttributeName = null; 
+	private String groupNameAttributeName = null;
 
 	/**
-	 * Name of the LDAP attribute on a group that tells you 
+	 * Name of the LDAP attribute on a group that tells you
 	 * who its children are.
 	 */
-	private String membershipAttributeName = null; 
+	private String membershipAttributeName = null;
 
 	private final Log log = LogFactory.getLog(getClass());
 
 	/*
 	 * Public API.
-	 */	
+	 */
 
 	public Object mapFromContext(Object ctx) {
 		DirContextAdapter context = (DirContextAdapter) ctx;
-		
+
 		// Assertions.
 		if (groupNameAttributeName == null) {
 			String msg = "The property 'groupNameAttributeName' must be set.";
@@ -56,8 +56,8 @@ public class SimpleContextMapper implements ContextMapper{
 		}
 
 		if (log.isInfoEnabled()) {
-			String msg = "SimpleContextMapper.mapFromContext() :: settings:  groupNameAttributeName='" 
-					+ groupNameAttributeName + "', membershipAttributeName='" 
+			String msg = "SimpleContextMapper.mapFromContext() :: settings:  groupNameAttributeName='"
+					+ groupNameAttributeName + "', membershipAttributeName='"
 					+ membershipAttributeName + "'";
 			log.info(msg);
 		}
@@ -65,7 +65,7 @@ public class SimpleContextMapper implements ContextMapper{
 		LdapRecord rslt;
 
 		try {
-            
+
 			String key ;
 			if (keyAttributeName == null) {
 			    key = (String) context.getDn().toString();
@@ -73,14 +73,18 @@ public class SimpleContextMapper implements ContextMapper{
 			    key = (String) context.getStringAttribute(keyAttributeName);
 			}
 			String groupName = (String) context.getStringAttribute(groupNameAttributeName);
-    
+
 			IEntityGroup g = new EntityTestingGroupImpl(key, IPerson.class);
 			g.setCreatorID("System");
 			g.setName(groupName);
 			g.setDescription(GROUP_DESCRIPTION);
-			
-			List<String> membership = new LinkedList<String>(Arrays.asList(context.getStringAttributes(membershipAttributeName)));
-			
+
+			String[] m = context.getStringAttributes(membershipAttributeName);
+			List<String> membership = new LinkedList<String>();
+			if (m != null && m.length > 0) {
+				membership.addAll(Arrays.asList(m));
+			}
+
 			rslt = new LdapRecord(g, membership);
 
 			if (log.isInfoEnabled()) {
@@ -102,7 +106,7 @@ public class SimpleContextMapper implements ContextMapper{
 			throw new RuntimeException(msg, t);
 		}
 
-		return rslt;		
+		return rslt;
 
 	}
 
