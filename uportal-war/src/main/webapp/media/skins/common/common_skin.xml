@@ -25,4 +25,5 @@
  xsi:schemaLocation="http://www.jasig.org/uportal/web/skin https://source.jasig.org/schemas/resource-server/skin-configuration/skin-configuration-v1.2.xsd">
   
   <js>javascript/uportal/up-ga.js</js>
+  <js>javascript/uportal/iframe-autoheight-using-postMessage.js</js>
 </resources>
