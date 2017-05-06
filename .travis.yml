@@ -9,11 +9,11 @@ sudo: false
 addons:
   apt:
     packages:
-      - locales
       - language-pack-fr
 
 env:
   global:
     - LANG=fr_FR.UTF-8
     - JAVA_OPTS=-Duser.country=FR -Duser.language=fr
+    - JAVA_TOOL_OPTIONS=-Duser.country=FR -Duser.language=fr
     - MAVEN_OPTS=-Duser.country=FR -Duser.language=fr
