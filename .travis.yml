@@ -1,3 +1,20 @@
 language: java
-before_install:
-  - unset GEM_PATH
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - language-pack-fr
+
+env:
+  global:
+    - LANG=fr_FR.UTF-8
+    - LANGUAGE=fr_FR:fr
+    - JAVA_OPTS=-Duser.country=FR -Duser.language=fr
+    - JAVA_TOOL_OPTIONS=-Duser.country=FR -Duser.language=fr
+    - MAVEN_OPTS=-Duser.country=FR -Duser.language=fr
