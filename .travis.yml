@@ -4,7 +4,7 @@ jdk:
   - oraclejdk7
   - openjdk7
 
-sudo: required
+sudo: false
 
 addons:
   apt:
@@ -17,8 +17,3 @@ env:
     - LANG=fr_FR.UTF-8
     - JAVA_OPTS=-Duser.country=FR -Duser.language=fr
     - MAVEN_OPTS=-Duser.country=FR -Duser.language=fr
-
-
-before_install: sudo update-locale LANG=fr_FR.UTF-8
-
-script: mvn test cobertura:cobertura coveralls:report -B -V

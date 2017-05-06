@@ -91,7 +91,7 @@
         <!-- The JDBC Driver used by uPortal -->
 
         <!-- HSQL driver. Uncomment if you need to -->
-        
+
         <jdbc.groupId>org.hsqldb</jdbc.groupId>
         <jdbc.artifactId>hsqldb</jdbc.artifactId>
         <jdbc.version>${hsqldb.version}</jdbc.version>
@@ -1318,6 +1318,12 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.15</version>
+                    <configuration>
+                      <systemPropertyVariables>
+                          <user.language>fr</user.language>
+                          <user.region>FR</user.region>
+                      </systemPropertyVariables>
+                  </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
