@@ -89,37 +89,37 @@
         <project-site-path>/uportal/${project.version}</project-site-path>
 
         <!-- The JDBC Driver used by uPortal -->
-        
+
         <!-- HSQL driver. Uncomment if you need to -->
-        <!--
+        
         <jdbc.groupId>org.hsqldb</jdbc.groupId>
         <jdbc.artifactId>hsqldb</jdbc.artifactId>
         <jdbc.version>${hsqldb.version}</jdbc.version>
-        -->
-    
+
+
         <!-- POSTGRESQL driver. Uncomment if you need to -->
         <!--
         <jdbc.groupId>org.postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
-        <jdbc.version>9.3-1102-jdbc41</jdbc.version>      
+        <jdbc.version>9.3-1102-jdbc41</jdbc.version>
         -->
 
         <!-- MYSQL driver. Uncomment if you need to -->
         <!--
         <jdbc.groupId>mysql</jdbc.groupId>
         <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-        <jdbc.version>5.1.9</jdbc.version>      
+        <jdbc.version>5.1.9</jdbc.version>
         -->
-                        
+
         <!--
          | Environment name and filters file for environment-specific build
-         | settings.  By default <environment.name> is blank, and the filters 
+         | settings.  By default <environment.name> is blank, and the filters
          | file is build.properties.
          |
-         | You can override the default by passing a -Denvironment.name 
-         | parameter, which Ant will do for you if you invoke Ant with 
-         | -Denv={something}.  NOTE that Ant also adds a suffixed period (.) 
-         | character.  If you want to override the default environment.name by 
+         | You can override the default by passing a -Denvironment.name
+         | parameter, which Ant will do for you if you invoke Ant with
+         | -Denv={something}.  NOTE that Ant also adds a suffixed period (.)
+         | character.  If you want to override the default environment.name by
          | invoking Maven directly, you will have to append a period yourself.
          +-->
         <env>esup</env>
@@ -226,11 +226,11 @@
         <xmlunit.version>1.4</xmlunit.version>
         <xstream.version>1.4.4</xstream.version>
 
-        <!-- 
-         | uPortal uses this expression to determine whether the user is on a 
-         | mobile device, such as a phone or a tablet, or a desktop/laptop 
-         | browser;  users may also choose the mobile/non-mobile experience when 
-         | they log in. 
+        <!--
+         | uPortal uses this expression to determine whether the user is on a
+         | mobile device, such as a phone or a tablet, or a desktop/laptop
+         | browser;  users may also choose the mobile/non-mobile experience when
+         | they log in.
          +-->
         <mobile.user.agent.regex>(.*iPhone.*)|(.*Android.*)|(.*IEMobile.*)|(.*Safari.*Pre.*)|(.*Nokia.*AppleWebKit.*)|(.*Black[Bb]erry.*)|(.*Opera Mobile.*)|(.*Windows Phone.*)|(.*Fennec.*)|(.*Minimo.*)</mobile.user.agent.regex>
 
@@ -476,7 +476,7 @@
                 <groupId>${jdbc.groupId}</groupId>
                 <artifactId>${jdbc.artifactId}</artifactId>
                 <version>${jdbc.version}</version>
-            </dependency>  
+            </dependency>
             <dependency>
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
@@ -1403,7 +1403,7 @@
     </build>
 
     <profiles>
-        <!-- 
+        <!--
          | Used by the continuous integrations server to deploy the project site.
          +-->
         <profile>
@@ -1415,7 +1415,7 @@
                 </site>
             </distributionManagement>
         </profile>
-        <!-- 
+        <!--
          | Should be activated manually by a developer that wishes to deploy a maven site for
          | the project
          +-->
